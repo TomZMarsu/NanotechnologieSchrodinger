@@ -2,6 +2,8 @@
     "files": [
         "mainwindow.py",
         "form.ui",
-        "mainWindow.ui"
+        "mainWindow.ui",
+        "NanotechnologieSchrodinger_en_US.ts",
+        "NanotechnologieSchrodinger_cs_CZ.ts"
     ]
 }

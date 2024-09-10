@@ -19,6 +19,7 @@ class MainWindow(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = Ui_Form()
+        self.translator = qtc.QTranslator(self)
         self.ui.setupUi(self)
         
         # Grafy
@@ -46,12 +47,24 @@ class MainWindow(QWidget):
         
         # HMOTNOST CASTICE
         # ---
-        self.ui.hmotnostCasticeComboBox.addItems(["Elektron (9.109e-31)", "Proton (1.673e-27)", "Vlastní částice"])
-        self.ui.hmotnostCasticeComboBox.currentTextChanged.connect(self.hmotnostCasticeComboBoxCurrentTextChanged)
+        self.ui.particleWeightComboBox.addItems(["Elektron (9.109e-31)", "Proton (1.673e-27)", "Vlastní částice"])
+        self.ui.particleWeightComboBox.currentTextChanged.connect(self.hmotnostCasticeComboBoxCurrentTextChanged)
         self.vlastniHmotnostCasticeLineEditValidator = QDoubleValidator()
         self.vlastniHmotnostCasticeLineEditValidator.setRange(0,1.0e50)
         self.vlastniHmotnostCasticeLineEditValidator.setNotation(QDoubleValidator.Notation.ScientificNotation)
-        self.ui.vlastniHmotnostCasticeLineEdit.setValidator(self.vlastniHmotnostCasticeLineEditValidator)
+        self.ui.customParticleWeightLineEdit.setValidator(self.vlastniHmotnostCasticeLineEditValidator)
+        
+        # Status bar
+        # ====================================================
+        # Language change
+        # --- (events)
+        self.ui.czechRadioButton.clicked.connect(self.czechRadioButtonPressed)
+        self.ui.englishRadioButton.clicked.connect(self.englishRadioButtonPressed)
+        
+        self.ui.englishRadioButton.click()
+        
+        
+        
 
     @qtc.Slot()
     def pocetPrvkuSliderValueChanged(self, x:int):
@@ -60,9 +73,24 @@ class MainWindow(QWidget):
     @qtc.Slot()
     def hmotnostCasticeComboBoxCurrentTextChanged(self, str):
         if(str=="Vlastní částice"):
-            self.ui.vlastniHmotnostCasticeLineEdit.setEnabled(True)
+            self.ui.customParticleWeightLineEdit.setEnabled(True)
         else:
-            self.ui.vlastniHmotnostCasticeLineEdit.setEnabled(False)
+            self.ui.customParticleWeightLineEdit.setEnabled(False)
+            
+    @qtc.Slot()
+    def czechRadioButtonPressed(self, checked):
+        if checked:
+            self.translator.load("NanotechnologieSchrodinger_cs_CZ")
+            QApplication.instance().installTranslator(self.translator)
+            self.ui.retranslateUi(self)
+            
+    @qtc.Slot()
+    def englishRadioButtonPressed(self, checked):
+        if checked:
+            self.translator.load("NanotechnologieSchrodinger_en_US")
+            QApplication.instance().installTranslator(self.translator)
+            self.ui.retranslateUi(self)
+            
         
     def nastrelit_situaci(self) -> Situace:
         situace = Situace(konec_osy=100,
