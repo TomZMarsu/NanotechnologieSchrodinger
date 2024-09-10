@@ -102,7 +102,7 @@
          <item>
           <widget class="QLabel" name="statusLabelDisplay">
            <property name="text">
-            <string notr="true">OK</string>
+            <string notr="true">-</string>
            </property>
           </widget>
          </item>
@@ -139,7 +139,7 @@
          <item>
           <widget class="QLabel" name="simulationSizeLabelDisplay">
            <property name="text">
-            <string notr="true">10kB</string>
+            <string notr="true">0 B</string>
            </property>
           </widget>
          </item>
@@ -176,7 +176,7 @@
          <item>
           <widget class="QLabel" name="simulationTimeLabelDisplay">
            <property name="text">
-            <string notr="true">0.7 s</string>
+            <string notr="true">0.0 s</string>
            </property>
           </widget>
          </item>

@@ -1,5 +1,6 @@
 # This Python file uses the following encoding: utf-8
 import sys
+import time
 from PySide6.QtWidgets import QApplication, QWidget, QLineEdit
 from PySide6 import QtCore as qtc
 from PySide6.QtGui import QDoubleValidator
@@ -175,9 +176,21 @@ class MainWindow(QWidget):
             self.ax2.clear()
         
         self.situace.prepocitat_pripravu()
-        self.situace.vyresit_rovnici()
+        _,_, computation_time = self.situace.vyresit_rovnici()
+        
+        plot_time_begin = time.time()
         self.vykreslit_graf(self.situace)
         self.simulationCanvas.draw()
+        plot_time_end = time.time()
+        
+        total_time: float = (plot_time_end-plot_time_begin) + computation_time
+        
+        self.setSimulationTime(total_time)
+    
+    def setSimulationTime(self, time: float):
+        timeLabel = self.ui.simulationTimeLabelDisplay
+        time_number: str = timeLabel.locale().toString(time, format="f", precision=4)
+        timeLabel.setText(f"{time_number} s")
     
     @qtc.Slot()
     def resimulateButtonPressed(self):
