@@ -1,0 +1,6 @@
+__pycache__
+/.qtcreator/
+/build/
+/dist/
+upx.exe
+requirements.txt
