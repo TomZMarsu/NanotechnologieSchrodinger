@@ -1,6 +1,6 @@
 # This Python file uses the following encoding: utf-8
 import sys
-from PySide6.QtWidgets import QApplication, QWidget
+from PySide6.QtWidgets import QApplication, QWidget, QLineEdit
 from PySide6 import QtCore as qtc
 from PySide6.QtGui import QDoubleValidator
 import matplotlib.pyplot as plt
@@ -19,8 +19,16 @@ class MainWindow(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = Ui_Form()
+        
+        # Setup language
         self.translator = qtc.QTranslator(self)
+        self.czechLocale = qtc.QLocale(qtc.QLocale.Language.Czech, qtc.QLocale.Country.CzechRepublic)
+        self.englishLocale = qtc.QLocale(qtc.QLocale.Language.English, qtc.QLocale.Country.UnitedStates)
+        self.setLocale(self.englishLocale)
+        qtc.QLocale.setDefault(self.englishLocale)
+        
         self.ui.setupUi(self)
+        self.situace = Situace()
         
         # Grafy
         # ====================================================
@@ -29,8 +37,6 @@ class MainWindow(QWidget):
         px = 1/plt.rcParams['figure.dpi']  # pixel in inches
 
         self.figure, self.ax = plt.subplots(constrained_layout=True)
-        situace = self.nastrelit_situaci()
-        self.vykreslit_graf(situace)
         self.simulationCanvas = FigureCanvas(self.figure)
         self.ui.simulationLayout.addWidget(self.simulationCanvas)
         
@@ -62,9 +68,20 @@ class MainWindow(QWidget):
         self.ui.englishRadioButton.clicked.connect(self.englishRadioButtonPressed)
         
         self.ui.englishRadioButton.click()
+    
+    def getParticleWeight(self) -> float:
+        weight_str = self.ui.particleWeightComboBox.currentText()
         
+        if weight_str == qtc.QCoreApplication.translate("Form", "Elektron (9.109e-31)", None):
+            return float(9.109e-31)
+        elif weight_str == qtc.QCoreApplication.translate("Form", "Proton (1.673e-27)", None):
+            return float(1.673e-27)
+        else:
+            return 0
         
-        
+    def init_situace(self) -> Situace:
+        situace = Situace()
+        situace.alfa = 0
 
     @qtc.Slot()
     def pocetPrvkuSliderValueChanged(self, x:int):
@@ -82,15 +99,33 @@ class MainWindow(QWidget):
         if checked:
             self.translator.load("NanotechnologieSchrodinger_cs_CZ")
             QApplication.instance().installTranslator(self.translator)
-            self.ui.retranslateUi(self)
+            self.setLocale(self.czechLocale)
+            self.translateUI()
             
     @qtc.Slot()
     def englishRadioButtonPressed(self, checked):
         if checked:
             self.translator.load("NanotechnologieSchrodinger_en_US")
-            QApplication.instance().installTranslator(self.translator)
-            self.ui.retranslateUi(self)
-            
+            self.setLocale(self.englishLocale)
+            self.translateUI()
+    
+    def translateFloatLineEdit(self, lineEdit:QLineEdit):
+        lineEditLocale:qtc.QLocale = lineEdit.locale()
+        lineEditValue:float = lineEditLocale.toFloat(lineEdit.text())[0]
+        lineEdit.setLocale(self.locale())
+        
+        if lineEdit.validator():
+            lineEdit.validator().setLocale(self.locale())
+        
+        if(lineEdit.text() != ""):
+            lineEdit.setText(self.locale().toString(lineEditValue, format="g"))
+    
+    def translateUI(self):
+        QApplication.instance().installTranslator(self.translator)
+        self.ui.retranslateUi(self)
+        
+        # Set line edit decimals
+        self.translateFloatLineEdit(self.ui.customParticleWeightLineEdit)
         
     def nastrelit_situaci(self) -> Situace:
         situace = Situace(konec_osy=100,

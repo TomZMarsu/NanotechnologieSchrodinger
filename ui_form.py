@@ -184,6 +184,7 @@ class Ui_Form(object):
         self.pocetPrvkuSlider.setObjectName(u"pocetPrvkuSlider")
         self.pocetPrvkuSlider.setMinimum(10)
         self.pocetPrvkuSlider.setMaximum(2000)
+        self.pocetPrvkuSlider.setValue(500)
         self.pocetPrvkuSlider.setOrientation(Qt.Orientation.Horizontal)
         self.pocetPrvkuSlider.setTickPosition(QSlider.TickPosition.TicksAbove)
 
@@ -202,6 +203,7 @@ class Ui_Form(object):
         sizePolicy3.setHeightForWidth(self.pocetPrvkuCurrentLabel.sizePolicy().hasHeightForWidth())
         self.pocetPrvkuCurrentLabel.setSizePolicy(sizePolicy3)
         self.pocetPrvkuCurrentLabel.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.pocetPrvkuCurrentLabel.setText(u"500")
         self.pocetPrvkuCurrentLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignHCenter)
 
         self.gridLayout.addWidget(self.pocetPrvkuCurrentLabel, 0, 2, 1, 1)
@@ -1115,7 +1117,7 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
 
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Form)
@@ -1135,7 +1137,6 @@ class Ui_Form(object):
         self.pocetPrvkuMaximumLabel.setText(QCoreApplication.translate("Form", u"2000", None))
         self.pocetPrvkuLabel.setText(QCoreApplication.translate("Form", u"Po\u010det simula\u010dn\u00edch prvk\u016f (v\u00edc prvk\u016f = vy\u0161\u0161\u00ed p\u0159esnost, vy\u0161\u0161\u00ed n\u00e1roky na v\u00fdpo\u010det a pam\u011b\u0165)", None))
         self.pocetPrvkuMinimumLabel.setText(QCoreApplication.translate("Form", u"10", None))
-        self.pocetPrvkuCurrentLabel.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>20</p></body></html>", None))
         self.simulationWidthLabel.setText(QCoreApplication.translate("Form", u"\u0160\u00ed\u0159ka simulace (nm)", None))
         self.simulationWidthLineEdit.setText(QCoreApplication.translate("Form", u"100", None))
         self.simulationWidthLineEdit.setPlaceholderText(QCoreApplication.translate("Form", u"100", None))
