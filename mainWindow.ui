@@ -39,7 +39,7 @@
     </widget>
    </item>
    <item>
-    <widget class="Line" name="line_2">
+    <widget class="Line" name="statusTopLine">
      <property name="orientation">
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
@@ -110,7 +110,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="statusLabelWidget_2" native="true">
+       <widget class="QWidget" name="simulationSizeLabelWidget" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <property name="topMargin">
           <number>0</number>
@@ -119,7 +119,7 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="statusLabelTitle_3">
+          <widget class="QLabel" name="simulationSizeLabelTitle">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -137,7 +137,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="statusLabelDisplay_3">
+          <widget class="QLabel" name="simulationSizeLabelDisplay">
            <property name="text">
             <string>10kB</string>
            </property>
@@ -147,7 +147,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="statusLabelWidget_3" native="true">
+       <widget class="QWidget" name="simulationTimeLabelWidget" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout_7">
          <property name="topMargin">
           <number>0</number>
@@ -156,7 +156,7 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="statusLabelTitle_4">
+          <widget class="QLabel" name="simulationTimeLabelTitle">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -174,7 +174,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="statusLabelDisplay_4">
+          <widget class="QLabel" name="simulationTimeLabelDisplay">
            <property name="text">
             <string>0.7 s</string>
            </property>
@@ -184,7 +184,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="clearSimulationButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -213,7 +213,7 @@
     </widget>
    </item>
    <item>
-    <widget class="Line" name="line_3">
+    <widget class="Line" name="statusBottomLine">
      <property name="orientation">
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
@@ -298,7 +298,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="konecOsyWidget" native="true">
+        <widget class="QWidget" name="simulationWidthWidget" native="true">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -307,7 +307,7 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="QLabel" name="konecOsyLabel">
+           <widget class="QLabel" name="simulationWidthLabel">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -320,7 +320,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="konecOsyLineEdit">
+           <widget class="QLineEdit" name="simulationWidthLineEdit">
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -342,7 +342,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="energieWidget" native="true">
+        <widget class="QWidget" name="basePotentialWidget" native="true">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -351,7 +351,7 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_8">
           <item>
-           <widget class="QLabel" name="energieLabel">
+           <widget class="QLabel" name="basePotentialLabel">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -364,7 +364,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="energieLineEdit">
+           <widget class="QLineEdit" name="basePotentialLineEdit">
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -380,7 +380,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="hmotnostCasticeWidget" native="true">
+        <widget class="QWidget" name="particleWeightWidget" native="true">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -389,7 +389,7 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_6">
           <item>
-           <widget class="QLabel" name="hmotnostCasticeLabel">
+           <widget class="QLabel" name="particelWeightLabel">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -402,7 +402,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="hmotnostCasticeComboBox">
+           <widget class="QComboBox" name="particleWeightComboBox">
             <property name="enabled">
              <bool>true</bool>
             </property>
@@ -421,7 +421,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="vlastniHmotnostCasticeLabel">
+           <widget class="QLabel" name="customParticleWeightLabel">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -434,7 +434,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="vlastniHmotnostCasticeLineEdit">
+           <widget class="QLineEdit" name="customParticleWeightLineEdit">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -453,7 +453,7 @@
         </widget>
        </item>
        <item>
-        <spacer name="verticalSpacer">
+        <spacer name="environmentTabVerticalSpacer">
          <property name="orientation">
           <enum>Qt::Orientation::Vertical</enum>
          </property>
@@ -476,7 +476,7 @@
       </attribute>
       <layout class="QHBoxLayout" name="horizontalLayout_9">
        <item>
-        <widget class="QWidget" name="widget" native="true">
+        <widget class="QWidget" name="addElementWidget" native="true">
          <property name="maximumSize">
           <size>
            <width>250</width>
@@ -485,14 +485,14 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_5">
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="addElementLabel">
             <property name="text">
              <string>Přidat prvek</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidget">
+           <widget class="QListWidget" name="addElementList">
             <item>
              <property name="text">
               <string>Upravit energii</string>
@@ -506,7 +506,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="addElementButton">
             <property name="text">
              <string>Přidat prvek</string>
             </property>
@@ -516,7 +516,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="widget_2" native="true">
+        <widget class="QWidget" name="elementListWidget" native="true">
          <property name="maximumSize">
           <size>
            <width>250</width>
@@ -525,14 +525,14 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="elementListLabel">
             <property name="text">
              <string>Prvky v simulaci</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidget_2">
+           <widget class="QListWidget" name="elementListList">
             <item>
              <property name="text">
               <string>Upravit energii 1</string>
@@ -546,7 +546,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QWidget" name="widget_6" native="true">
+           <widget class="QWidget" name="elementListButtonWidget" native="true">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -558,7 +558,7 @@
               <number>0</number>
              </property>
              <item>
-              <widget class="QPushButton" name="pushButton_4">
+              <widget class="QPushButton" name="elementListRemoveButton">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>60</horstretch>
@@ -571,7 +571,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_2">
+              <widget class="QPushButton" name="elementListButtonDown">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>15</horstretch>
@@ -584,7 +584,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_3">
+              <widget class="QPushButton" name="elementListButtonUp">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>15</horstretch>
@@ -603,17 +603,17 @@
         </widget>
        </item>
        <item>
-        <widget class="Line" name="line">
+        <widget class="Line" name="potentialDividerLine">
          <property name="orientation">
           <enum>Qt::Orientation::Vertical</enum>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="widget_3" native="true">
+        <widget class="QWidget" name="editElementWidget" native="true">
          <layout class="QVBoxLayout" name="verticalLayout_7">
           <item>
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="editElementTitleLabel">
             <property name="font">
              <font>
               <bold>true</bold>
@@ -625,7 +625,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QWidget" name="widget_4" native="true">
+           <widget class="QWidget" name="editElementStartWidget" native="true">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
               <horstretch>0</horstretch>
@@ -634,14 +634,14 @@
             </property>
             <layout class="QGridLayout" name="gridLayout_2">
              <item row="1" column="0">
-              <widget class="QLabel" name="label_4">
+              <widget class="QLabel" name="editElementStartTitleLabel">
                <property name="text">
                 <string>Počátek úpravy</string>
                </property>
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QSlider" name="horizontalSlider">
+              <widget class="QSlider" name="editElementStartSlider">
                <property name="value">
                 <number>20</number>
                </property>
@@ -651,7 +651,7 @@
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLabel" name="label_5">
+              <widget class="QLabel" name="editElementStartStatusLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                  <horstretch>0</horstretch>
@@ -670,7 +670,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QWidget" name="widget_5" native="true">
+           <widget class="QWidget" name="editElementEndWidget" native="true">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
               <horstretch>0</horstretch>
@@ -679,14 +679,14 @@
             </property>
             <layout class="QGridLayout" name="gridLayout_3">
              <item row="1" column="0">
-              <widget class="QLabel" name="label_6">
+              <widget class="QLabel" name="editElementEndTitleLabel">
                <property name="text">
                 <string>Konec úpravy</string>
                </property>
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QSlider" name="horizontalSlider_2">
+              <widget class="QSlider" name="editElementEndSlider">
                <property name="pageStep">
                 <number>10</number>
                </property>
@@ -708,7 +708,7 @@
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLabel" name="label_7">
+              <widget class="QLabel" name="editElementEndStatusLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                  <horstretch>0</horstretch>
@@ -727,7 +727,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QWidget" name="konecOsyWidget_2" native="true">
+           <widget class="QWidget" name="newPotentialWidget" native="true">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -736,7 +736,7 @@
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_10">
              <item>
-              <widget class="QLabel" name="konecOsyLabel_2">
+              <widget class="QLabel" name="newPotentialLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -749,7 +749,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="konecOsyLineEdit_2">
+              <widget class="QLineEdit" name="newPotentialLineEdit">
                <property name="maximumSize">
                 <size>
                  <width>200</width>
@@ -771,7 +771,7 @@
            </widget>
           </item>
           <item>
-           <spacer name="verticalSpacer_2">
+           <spacer name="editElementVerticalSpacer">
             <property name="orientation">
              <enum>Qt::Orientation::Vertical</enum>
             </property>
@@ -813,7 +813,7 @@
             <property name="frameShadow">
              <enum>QFrame::Shadow::Raised</enum>
             </property>
-            <widget class="QLabel" name="label_17">
+            <widget class="QLabel" name="placeholderTunnelingLabel">
              <property name="geometry">
               <rect>
                <x>140</x>
@@ -832,7 +832,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QScrollArea" name="scrollArea">
+        <widget class="QScrollArea" name="tunnelingScrollArea">
          <property name="maximumSize">
           <size>
            <width>400</width>
@@ -865,7 +865,7 @@
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_15">
            <item>
-            <widget class="QWidget" name="widget_13" native="true">
+            <widget class="QWidget" name="scrollAreaWidget" native="true">
              <property name="maximumSize">
               <size>
                <width>370</width>
@@ -877,7 +877,7 @@
                <number>9</number>
               </property>
               <item>
-               <widget class="QLabel" name="label_18">
+               <widget class="QLabel" name="tunnelingHintLabel">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
                   <horstretch>0</horstretch>
@@ -898,13 +898,13 @@
                </widget>
               </item>
               <item>
-               <widget class="QGroupBox" name="groupBox_2">
+               <widget class="QGroupBox" name="tunnelingSectionAGroupBox">
                 <property name="title">
                  <string>Úsek Ψa</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_12">
                  <item>
-                  <widget class="QWidget" name="pocetPrvkuWidget_2" native="true">
+                  <widget class="QWidget" name="tunnelingSectionAStartWidget" native="true">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                      <horstretch>0</horstretch>
@@ -913,7 +913,7 @@
                    </property>
                    <layout class="QGridLayout" name="gridLayout_4">
                     <item row="1" column="2">
-                     <widget class="QSlider" name="pocetPrvkuSlider_2">
+                     <widget class="QSlider" name="tunnelingSectionAStartSlider">
                       <property name="minimum">
                        <number>10</number>
                       </property>
@@ -929,28 +929,28 @@
                      </widget>
                     </item>
                     <item row="1" column="0">
-                     <widget class="QLabel" name="pocetPrvkuLabel_2">
+                     <widget class="QLabel" name="tunnelingSectionAStartTitleLabel">
                       <property name="text">
                        <string>Počátek úseku</string>
                       </property>
                      </widget>
                     </item>
                     <item row="1" column="3">
-                     <widget class="QLabel" name="pocetPrvkuMaximumLabel_2">
+                     <widget class="QLabel" name="tunnelingSectionAStartEndRangeLabel">
                       <property name="text">
                        <string>2000</string>
                       </property>
                      </widget>
                     </item>
                     <item row="1" column="1">
-                     <widget class="QLabel" name="pocetPrvkuMinimumLabel_2">
+                     <widget class="QLabel" name="tunnelingSectionAStartStartLabel">
                       <property name="text">
                        <string>10</string>
                       </property>
                      </widget>
                     </item>
                     <item row="0" column="2" alignment="Qt::AlignmentFlag::AlignHCenter">
-                     <widget class="QSpinBox" name="spinBox_4">
+                     <widget class="QSpinBox" name="tunnelingSectionAStartSpinBox">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -966,7 +966,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="pocetPrvkuWidget_3" native="true">
+                  <widget class="QWidget" name="tunnelingSectionAEndWidget" native="true">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                      <horstretch>0</horstretch>
@@ -975,7 +975,7 @@
                    </property>
                    <layout class="QGridLayout" name="gridLayout_5">
                     <item row="1" column="2">
-                     <widget class="QSlider" name="pocetPrvkuSlider_3">
+                     <widget class="QSlider" name="tunnelingSectionAEndSlider">
                       <property name="minimum">
                        <number>10</number>
                       </property>
@@ -997,28 +997,28 @@
                      </widget>
                     </item>
                     <item row="1" column="0">
-                     <widget class="QLabel" name="pocetPrvkuLabel_3">
+                     <widget class="QLabel" name="tunnelingSectionAEndTitleLabel">
                       <property name="text">
                        <string>Konec úseku</string>
                       </property>
                      </widget>
                     </item>
                     <item row="1" column="3">
-                     <widget class="QLabel" name="pocetPrvkuMaximumLabel_3">
+                     <widget class="QLabel" name="tunnelingSectionAEndEndLabel">
                       <property name="text">
                        <string>2000</string>
                       </property>
                      </widget>
                     </item>
                     <item row="1" column="1">
-                     <widget class="QLabel" name="pocetPrvkuMinimumLabel_3">
+                     <widget class="QLabel" name="tunnelingSectionAEndStartLabel">
                       <property name="text">
                        <string>10</string>
                       </property>
                      </widget>
                     </item>
                     <item row="0" column="2" alignment="Qt::AlignmentFlag::AlignHCenter">
-                     <widget class="QSpinBox" name="spinBox_5">
+                     <widget class="QSpinBox" name="tunnelingSectionAEndSpinBox">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -1037,13 +1037,13 @@
                </widget>
               </item>
               <item>
-               <widget class="QGroupBox" name="groupBox_3">
+               <widget class="QGroupBox" name="tunnelingSectionBGroupBox">
                 <property name="title">
                  <string>Úsek Ψb</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_13">
                  <item>
-                  <widget class="QWidget" name="pocetPrvkuWidget_4" native="true">
+                  <widget class="QWidget" name="tunnelingSectionBStartWidget" native="true">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                      <horstretch>0</horstretch>
@@ -1052,7 +1052,7 @@
                    </property>
                    <layout class="QGridLayout" name="gridLayout_6">
                     <item row="1" column="2">
-                     <widget class="QSlider" name="pocetPrvkuSlider_4">
+                     <widget class="QSlider" name="tunnelingSectionBStartSlider">
                       <property name="minimum">
                        <number>10</number>
                       </property>
@@ -1068,28 +1068,28 @@
                      </widget>
                     </item>
                     <item row="1" column="0">
-                     <widget class="QLabel" name="pocetPrvkuLabel_4">
+                     <widget class="QLabel" name="tunnelingSectionBStartTitleLabel">
                       <property name="text">
                        <string>Počátek úseku</string>
                       </property>
                      </widget>
                     </item>
                     <item row="1" column="3">
-                     <widget class="QLabel" name="pocetPrvkuMaximumLabel_4">
+                     <widget class="QLabel" name="tunnelingSectionBStartEndLabel">
                       <property name="text">
                        <string>2000</string>
                       </property>
                      </widget>
                     </item>
                     <item row="1" column="1">
-                     <widget class="QLabel" name="pocetPrvkuMinimumLabel_4">
+                     <widget class="QLabel" name="tunnelingSectionBStartStartLabel">
                       <property name="text">
                        <string>10</string>
                       </property>
                      </widget>
                     </item>
                     <item row="0" column="2" alignment="Qt::AlignmentFlag::AlignHCenter">
-                     <widget class="QSpinBox" name="spinBox_6">
+                     <widget class="QSpinBox" name="tunnelingSectionBStartSpinBox">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -1105,7 +1105,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QWidget" name="pocetPrvkuWidget_5" native="true">
+                  <widget class="QWidget" name="tunnelingSectionBEndWidget" native="true">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                      <horstretch>0</horstretch>
@@ -1114,7 +1114,7 @@
                    </property>
                    <layout class="QGridLayout" name="gridLayout_7">
                     <item row="1" column="2">
-                     <widget class="QSlider" name="pocetPrvkuSlider_5">
+                     <widget class="QSlider" name="tunnelingSectionBEndSlider">
                       <property name="minimum">
                        <number>10</number>
                       </property>
@@ -1136,28 +1136,28 @@
                      </widget>
                     </item>
                     <item row="1" column="0">
-                     <widget class="QLabel" name="pocetPrvkuLabel_5">
+                     <widget class="QLabel" name="tunnelingSectionBEndTitleLabel">
                       <property name="text">
                        <string>Konec úseku</string>
                       </property>
                      </widget>
                     </item>
                     <item row="1" column="3">
-                     <widget class="QLabel" name="pocetPrvkuMaximumLabel_5">
+                     <widget class="QLabel" name="tunnelingSectionBEndEndLabel">
                       <property name="text">
                        <string>2000</string>
                       </property>
                      </widget>
                     </item>
                     <item row="1" column="1">
-                     <widget class="QLabel" name="pocetPrvkuMinimumLabel_5">
+                     <widget class="QLabel" name="tunnelingSectionBEndStartLabel">
                       <property name="text">
                        <string>10</string>
                       </property>
                      </widget>
                     </item>
                     <item row="0" column="2" alignment="Qt::AlignmentFlag::AlignHCenter">
-                     <widget class="QSpinBox" name="spinBox_7">
+                     <widget class="QSpinBox" name="tunnelingSectionBEndSpinBox">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -1176,17 +1176,17 @@
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="checkBox_5">
+               <widget class="QCheckBox" name="tunnelingContainLevelsAboveBarrierCheckBox">
                 <property name="text">
                  <string>Zahrnout hladiny nad bariérou</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="widget_14" native="true">
+               <widget class="QWidget" name="tunnelingContainLevelsAboveBarrierWidget" native="true">
                 <layout class="QHBoxLayout" name="horizontalLayout_3">
                  <item>
-                  <spacer name="horizontalSpacer_2">
+                  <spacer name="tunnelingContainLevelsAboveBarrierSpacer">
                    <property name="orientation">
                     <enum>Qt::Orientation::Horizontal</enum>
                    </property>
@@ -1202,7 +1202,7 @@
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QSpinBox" name="spinBox_8">
+                  <widget class="QSpinBox" name="tunnelingContainLevelsAboveBarrierSpinBox">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -1212,7 +1212,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="label_19">
+                  <widget class="QLabel" name="tunnelingContainLevelsAboveBarrierLabel">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -1228,34 +1228,34 @@
                </widget>
               </item>
               <item>
-               <widget class="QGroupBox" name="groupBox_4">
+               <widget class="QGroupBox" name="tunnelingDirectionGroupBox">
                 <property name="title">
                  <string>Směr tunelování</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_14">
                  <item>
-                  <widget class="QRadioButton" name="radioButton_4">
+                  <widget class="QRadioButton" name="tunnelingDirectionAtoBRadioButton">
                    <property name="text">
                     <string>Úsek Ψa do úseku Ψb</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radioButton_5">
+                  <widget class="QRadioButton" name="tunnelingDirectionBtoARadioButton">
                    <property name="text">
                     <string>Úsek Ψb do úseku Ψa</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radioButton_6">
+                  <widget class="QRadioButton" name="tunnelingDirectionTogetherRadioButton">
                    <property name="text">
                     <string>Dohromady</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radioButton_7">
+                  <widget class="QRadioButton" name="tunnelingDirectionSeparateRadioButton">
                    <property name="text">
                     <string>Každý zvlášť</string>
                    </property>
@@ -1279,26 +1279,26 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_8">
        <item>
-        <widget class="QWidget" name="widget_7" native="true">
+        <widget class="QWidget" name="resultWidget" native="true">
          <layout class="QHBoxLayout" name="horizontalLayout_13">
           <item>
-           <widget class="QGroupBox" name="groupBox">
+           <widget class="QGroupBox" name="resultEnergyLevelsGroupBox">
             <property name="title">
              <string>Zobrazení energetických hladin</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_11">
              <item>
-              <widget class="QWidget" name="widget_9" native="true">
+              <widget class="QWidget" name="levelsSpecificRangeWidget" native="true">
                <layout class="QHBoxLayout" name="horizontalLayout_14">
                 <item>
-                 <widget class="QRadioButton" name="radioButton">
+                 <widget class="QRadioButton" name="levelsSpecificRangeRadioButton">
                   <property name="text">
                    <string>Určitý počet hladin (1-1000):</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_9">
+                 <widget class="QLabel" name="levelsSpecificRangeFromLabel">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                     <horstretch>0</horstretch>
@@ -1311,7 +1311,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSpinBox" name="spinBox_2">
+                 <widget class="QSpinBox" name="levelsSpecificRangeFromSpinBox">
                   <property name="minimum">
                    <number>1</number>
                   </property>
@@ -1321,7 +1321,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_8">
+                 <widget class="QLabel" name="levelsSpecificRangeToLabel">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                     <horstretch>0</horstretch>
@@ -1334,7 +1334,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSpinBox" name="spinBox">
+                 <widget class="QSpinBox" name="levelsSpecificRangeToSpinBox">
                   <property name="minimum">
                    <number>1</number>
                   </property>
@@ -1347,7 +1347,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_10">
+                 <widget class="QLabel" name="levelsSpecificRangeLevelLabel">
                   <property name="text">
                    <string>hladiny</string>
                   </property>
@@ -1357,17 +1357,17 @@
               </widget>
              </item>
              <item>
-              <widget class="QWidget" name="widget_10" native="true">
+              <widget class="QWidget" name="levelsHighestPotentialWidget" native="true">
                <layout class="QHBoxLayout" name="horizontalLayout_15">
                 <item>
-                 <widget class="QRadioButton" name="radioButton_2">
+                 <widget class="QRadioButton" name="levelsHighestPotentialRadioButton">
                   <property name="text">
                    <string>(Počet hladin) nad/pod nejvyšším potenciálem:</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBox">
+                 <widget class="QComboBox" name="levelsHighestPotentialComboBox">
                   <item>
                    <property name="text">
                     <string>Nad</string>
@@ -1381,23 +1381,23 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSpinBox" name="spinBox_3"/>
+                 <widget class="QSpinBox" name="levelsHighestPotentialSpinBox"/>
                 </item>
                </layout>
               </widget>
              </item>
              <item>
-              <widget class="QWidget" name="widget_11" native="true">
+              <widget class="QWidget" name="levelsRangePotentialWidget" native="true">
                <layout class="QHBoxLayout" name="horizontalLayout_16">
                 <item>
-                 <widget class="QRadioButton" name="radioButton_3">
+                 <widget class="QRadioButton" name="levelsRangePotentialRadioButton">
                   <property name="text">
                    <string>Hladiny o energií:</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_11">
+                 <widget class="QLabel" name="levelsRangePotentialFromLabel">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                     <horstretch>0</horstretch>
@@ -1410,10 +1410,10 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+                 <widget class="QDoubleSpinBox" name="levelsRangePotentialFromSpinBox"/>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_12">
+                 <widget class="QLabel" name="levelsRangePotentialToLabel">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                     <horstretch>0</horstretch>
@@ -1426,10 +1426,10 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+                 <widget class="QDoubleSpinBox" name="levelsRangePotentialToSpinBox"/>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_13">
+                 <widget class="QLabel" name="levelsRangePotentialUnitLabel">
                   <property name="text">
                    <string>eV</string>
                   </property>
@@ -1439,7 +1439,7 @@
               </widget>
              </item>
              <item>
-              <spacer name="verticalSpacer_4">
+              <spacer name="resultEnergyLevelsGroupBoxSpacer">
                <property name="orientation">
                 <enum>Qt::Orientation::Vertical</enum>
                </property>
@@ -1455,38 +1455,38 @@
            </widget>
           </item>
           <item>
-           <widget class="QWidget" name="widget_8" native="true">
+           <widget class="QWidget" name="resultCheckboxesWidhet" native="true">
             <layout class="QVBoxLayout" name="verticalLayout_9">
              <item>
-              <widget class="QCheckBox" name="checkBox">
+              <widget class="QCheckBox" name="secondaryAxisPotentialCheckBox">
                <property name="text">
                 <string>Zobrazit potenciál na sekundární ose</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_3">
+              <widget class="QCheckBox" name="psiAsECheckBox">
                <property name="text">
                 <string>Zvednout vlnovou funkci ψ o danou energetickou hladinu </string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_2">
+              <widget class="QCheckBox" name="squarePsiCheckBox">
                <property name="text">
                 <string>Převést vlnovou funkci na hustotu pravděpodobnosti (ψ→ψψ*)</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_4">
+              <widget class="QCheckBox" name="psiAsColorBarCheckBox">
                <property name="text">
                 <string>Znázornit vlnovou funkci jako barevný pruh</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QWidget" name="konecOsyWidget_3" native="true">
+              <widget class="QWidget" name="colorBarHeightCoefficientWidget" native="true">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                  <horstretch>0</horstretch>
@@ -1501,7 +1501,7 @@
                  <number>200</number>
                 </property>
                 <item>
-                 <spacer name="horizontalSpacer">
+                 <spacer name="colorBarHeightCoefficientHorizontalSpacer">
                   <property name="orientation">
                    <enum>Qt::Orientation::Horizontal</enum>
                   </property>
@@ -1514,7 +1514,7 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QLabel" name="konecOsyLabel_3">
+                 <widget class="QLabel" name="colorBarHeightCoefficientLabel">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -1527,7 +1527,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="konecOsyLineEdit_3">
+                 <widget class="QLineEdit" name="colorBarHeightCoefficientLineEdit">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -1555,7 +1555,7 @@
               </widget>
              </item>
              <item>
-              <spacer name="verticalSpacer_3">
+              <spacer name="resultCheckboxesVerticalSpacer">
                <property name="orientation">
                 <enum>Qt::Orientation::Vertical</enum>
                </property>
@@ -1574,7 +1574,7 @@
         </widget>
        </item>
        <item alignment="Qt::AlignmentFlag::AlignRight">
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="applyChangesButton">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -1591,7 +1591,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab">
+     <widget class="QWidget" name="energyLevelsTableTab">
       <attribute name="title">
        <string>Tabulka energetických hladin</string>
       </attribute>
@@ -1695,7 +1695,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="widget_12" native="true">
+    <widget class="QWidget" name="footerWidget" native="true">
      <layout class="QHBoxLayout" name="horizontalLayout_17">
       <property name="leftMargin">
        <number>9</number>
@@ -1710,7 +1710,7 @@
        <number>2</number>
       </property>
       <item>
-       <widget class="QLabel" name="label_14">
+       <widget class="QLabel" name="creditsLabel">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -1723,14 +1723,14 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_15">
+       <widget class="QLabel" name="githubLabel">
         <property name="text">
-         <string>Odkaz na github projektu (není ještě vytvořen)</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/TomZMarsu/NanotechnologieSchrodinger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Zdrojový kód (GitHub)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="widget_15" native="true">
+       <widget class="QWidget" name="languageWidget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -1748,7 +1748,7 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QRadioButton" name="radioButton_8">
+          <widget class="QRadioButton" name="czechRadioButton">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -1761,7 +1761,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="radioButton_9">
+          <widget class="QRadioButton" name="englishRadioButton">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -1777,7 +1777,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_16">
+       <widget class="QLabel" name="licenseLabel">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
           <horstretch>0</horstretch>
