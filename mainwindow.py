@@ -126,6 +126,8 @@ class MainWindow(QWidget):
         
         # Set line edit decimals
         self.translateFloatLineEdit(self.ui.customParticleWeightLineEdit)
+        self.translateFloatLineEdit(self.ui.basePotentialLineEdit)
+        self.translateFloatLineEdit(self.ui.simulationWidthLineEdit)
         
     def nastrelit_situaci(self) -> Situace:
         situace = Situace(konec_osy=100,
