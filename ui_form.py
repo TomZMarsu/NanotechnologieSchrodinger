@@ -80,6 +80,7 @@ class Ui_Form(object):
 
         self.statusLabelDisplay = QLabel(self.statusLabelWidget)
         self.statusLabelDisplay.setObjectName(u"statusLabelDisplay")
+        self.statusLabelDisplay.setText(u"OK")
 
         self.horizontalLayout_2.addWidget(self.statusLabelDisplay)
 
@@ -101,6 +102,7 @@ class Ui_Form(object):
 
         self.simulationSizeLabelDisplay = QLabel(self.simulationSizeLabelWidget)
         self.simulationSizeLabelDisplay.setObjectName(u"simulationSizeLabelDisplay")
+        self.simulationSizeLabelDisplay.setText(u"10kB")
 
         self.horizontalLayout_4.addWidget(self.simulationSizeLabelDisplay)
 
@@ -122,6 +124,7 @@ class Ui_Form(object):
 
         self.simulationTimeLabelDisplay = QLabel(self.simulationTimeLabelWidget)
         self.simulationTimeLabelDisplay.setObjectName(u"simulationTimeLabelDisplay")
+        self.simulationTimeLabelDisplay.setText(u"0.7 s")
 
         self.horizontalLayout_7.addWidget(self.simulationTimeLabelDisplay)
 
@@ -172,6 +175,7 @@ class Ui_Form(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.pocetPrvkuMaximumLabel = QLabel(self.pocetPrvkuWidget)
         self.pocetPrvkuMaximumLabel.setObjectName(u"pocetPrvkuMaximumLabel")
+        self.pocetPrvkuMaximumLabel.setText(u"2000")
 
         self.gridLayout.addWidget(self.pocetPrvkuMaximumLabel, 1, 3, 1, 1)
 
@@ -184,6 +188,7 @@ class Ui_Form(object):
         self.pocetPrvkuSlider.setObjectName(u"pocetPrvkuSlider")
         self.pocetPrvkuSlider.setMinimum(10)
         self.pocetPrvkuSlider.setMaximum(2000)
+        self.pocetPrvkuSlider.setValue(500)
         self.pocetPrvkuSlider.setOrientation(Qt.Orientation.Horizontal)
         self.pocetPrvkuSlider.setTickPosition(QSlider.TickPosition.TicksAbove)
 
@@ -191,6 +196,7 @@ class Ui_Form(object):
 
         self.pocetPrvkuMinimumLabel = QLabel(self.pocetPrvkuWidget)
         self.pocetPrvkuMinimumLabel.setObjectName(u"pocetPrvkuMinimumLabel")
+        self.pocetPrvkuMinimumLabel.setText(u"10")
 
         self.gridLayout.addWidget(self.pocetPrvkuMinimumLabel, 1, 1, 1, 1)
 
@@ -202,6 +208,7 @@ class Ui_Form(object):
         sizePolicy3.setHeightForWidth(self.pocetPrvkuCurrentLabel.sizePolicy().hasHeightForWidth())
         self.pocetPrvkuCurrentLabel.setSizePolicy(sizePolicy3)
         self.pocetPrvkuCurrentLabel.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.pocetPrvkuCurrentLabel.setText(u"500")
         self.pocetPrvkuCurrentLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignHCenter)
 
         self.gridLayout.addWidget(self.pocetPrvkuCurrentLabel, 0, 2, 1, 1)
@@ -225,7 +232,9 @@ class Ui_Form(object):
         self.simulationWidthLineEdit = QLineEdit(self.simulationWidthWidget)
         self.simulationWidthLineEdit.setObjectName(u"simulationWidthLineEdit")
         self.simulationWidthLineEdit.setMaximumSize(QSize(200, 16777215))
-        self.simulationWidthLineEdit.setMaxLength(5)
+        self.simulationWidthLineEdit.setText(u"100")
+        self.simulationWidthLineEdit.setMaxLength(30)
+        self.simulationWidthLineEdit.setPlaceholderText(u"")
 
         self.horizontalLayout_5.addWidget(self.simulationWidthLineEdit)
 
@@ -248,6 +257,8 @@ class Ui_Form(object):
         self.basePotentialLineEdit = QLineEdit(self.basePotentialWidget)
         self.basePotentialLineEdit.setObjectName(u"basePotentialLineEdit")
         self.basePotentialLineEdit.setMaximumSize(QSize(200, 16777215))
+        self.basePotentialLineEdit.setText(u"0.3")
+        self.basePotentialLineEdit.setMaxLength(30)
 
         self.horizontalLayout_8.addWidget(self.basePotentialLineEdit)
 
@@ -268,6 +279,9 @@ class Ui_Form(object):
         self.horizontalLayout_6.addWidget(self.particelWeightLabel)
 
         self.particleWeightComboBox = QComboBox(self.particleWeightWidget)
+        self.particleWeightComboBox.addItem("")
+        self.particleWeightComboBox.addItem("")
+        self.particleWeightComboBox.addItem("")
         self.particleWeightComboBox.setObjectName(u"particleWeightComboBox")
         self.particleWeightComboBox.setEnabled(True)
         self.particleWeightComboBox.setMinimumSize(QSize(200, 0))
@@ -286,6 +300,8 @@ class Ui_Form(object):
         self.customParticleWeightLineEdit.setObjectName(u"customParticleWeightLineEdit")
         self.customParticleWeightLineEdit.setEnabled(False)
         self.customParticleWeightLineEdit.setMaximumSize(QSize(200, 16777215))
+        self.customParticleWeightLineEdit.setText(u"")
+        self.customParticleWeightLineEdit.setMaxLength(30)
 
         self.horizontalLayout_6.addWidget(self.customParticleWeightLineEdit)
 
@@ -431,6 +447,7 @@ class Ui_Form(object):
         sizePolicy8.setVerticalStretch(0)
         sizePolicy8.setHeightForWidth(self.editElementStartStatusLabel.sizePolicy().hasHeightForWidth())
         self.editElementStartStatusLabel.setSizePolicy(sizePolicy8)
+        self.editElementStartStatusLabel.setText(u"20")
         self.editElementStartStatusLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignHCenter)
 
         self.gridLayout_2.addWidget(self.editElementStartStatusLabel, 0, 1, 1, 1)
@@ -464,6 +481,7 @@ class Ui_Form(object):
         self.editElementEndStatusLabel.setObjectName(u"editElementEndStatusLabel")
         sizePolicy8.setHeightForWidth(self.editElementEndStatusLabel.sizePolicy().hasHeightForWidth())
         self.editElementEndStatusLabel.setSizePolicy(sizePolicy8)
+        self.editElementEndStatusLabel.setText(u"50")
         self.editElementEndStatusLabel.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignHCenter)
 
         self.gridLayout_3.addWidget(self.editElementEndStatusLabel, 0, 1, 1, 1)
@@ -534,7 +552,7 @@ class Ui_Form(object):
         self.tunnelingScrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 380, 686))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, -240, 380, 686))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.scrollAreaWidget = QWidget(self.scrollAreaWidgetContents)
@@ -562,6 +580,23 @@ class Ui_Form(object):
         self.tunnelingSectionAStartWidget.setSizePolicy(sizePolicy2)
         self.gridLayout_4 = QGridLayout(self.tunnelingSectionAStartWidget)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.tunnelingSectionAStartStartLabel = QLabel(self.tunnelingSectionAStartWidget)
+        self.tunnelingSectionAStartStartLabel.setObjectName(u"tunnelingSectionAStartStartLabel")
+        self.tunnelingSectionAStartStartLabel.setText(u"10")
+
+        self.gridLayout_4.addWidget(self.tunnelingSectionAStartStartLabel, 2, 1, 1, 1)
+
+        self.tunnelingSectionAStartTitleLabel = QLabel(self.tunnelingSectionAStartWidget)
+        self.tunnelingSectionAStartTitleLabel.setObjectName(u"tunnelingSectionAStartTitleLabel")
+
+        self.gridLayout_4.addWidget(self.tunnelingSectionAStartTitleLabel, 2, 0, 1, 1)
+
+        self.tunnelingSectionAStartEndRangeLabel = QLabel(self.tunnelingSectionAStartWidget)
+        self.tunnelingSectionAStartEndRangeLabel.setObjectName(u"tunnelingSectionAStartEndRangeLabel")
+        self.tunnelingSectionAStartEndRangeLabel.setText(u"2000")
+
+        self.gridLayout_4.addWidget(self.tunnelingSectionAStartEndRangeLabel, 2, 3, 1, 1)
+
         self.tunnelingSectionAStartSlider = QSlider(self.tunnelingSectionAStartWidget)
         self.tunnelingSectionAStartSlider.setObjectName(u"tunnelingSectionAStartSlider")
         self.tunnelingSectionAStartSlider.setMinimum(10)
@@ -569,30 +604,14 @@ class Ui_Form(object):
         self.tunnelingSectionAStartSlider.setOrientation(Qt.Orientation.Horizontal)
         self.tunnelingSectionAStartSlider.setTickPosition(QSlider.TickPosition.TicksAbove)
 
-        self.gridLayout_4.addWidget(self.tunnelingSectionAStartSlider, 1, 2, 1, 1)
+        self.gridLayout_4.addWidget(self.tunnelingSectionAStartSlider, 2, 2, 1, 1)
 
-        self.tunnelingSectionAStartTitleLabel = QLabel(self.tunnelingSectionAStartWidget)
-        self.tunnelingSectionAStartTitleLabel.setObjectName(u"tunnelingSectionAStartTitleLabel")
+        self.tunnelingSectionAStartDoubleSpinBox = QDoubleSpinBox(self.tunnelingSectionAStartWidget)
+        self.tunnelingSectionAStartDoubleSpinBox.setObjectName(u"tunnelingSectionAStartDoubleSpinBox")
+        sizePolicy1.setHeightForWidth(self.tunnelingSectionAStartDoubleSpinBox.sizePolicy().hasHeightForWidth())
+        self.tunnelingSectionAStartDoubleSpinBox.setSizePolicy(sizePolicy1)
 
-        self.gridLayout_4.addWidget(self.tunnelingSectionAStartTitleLabel, 1, 0, 1, 1)
-
-        self.tunnelingSectionAStartEndRangeLabel = QLabel(self.tunnelingSectionAStartWidget)
-        self.tunnelingSectionAStartEndRangeLabel.setObjectName(u"tunnelingSectionAStartEndRangeLabel")
-
-        self.gridLayout_4.addWidget(self.tunnelingSectionAStartEndRangeLabel, 1, 3, 1, 1)
-
-        self.tunnelingSectionAStartStartLabel = QLabel(self.tunnelingSectionAStartWidget)
-        self.tunnelingSectionAStartStartLabel.setObjectName(u"tunnelingSectionAStartStartLabel")
-
-        self.gridLayout_4.addWidget(self.tunnelingSectionAStartStartLabel, 1, 1, 1, 1)
-
-        self.tunnelingSectionAStartSpinBox = QSpinBox(self.tunnelingSectionAStartWidget)
-        self.tunnelingSectionAStartSpinBox.setObjectName(u"tunnelingSectionAStartSpinBox")
-        sizePolicy1.setHeightForWidth(self.tunnelingSectionAStartSpinBox.sizePolicy().hasHeightForWidth())
-        self.tunnelingSectionAStartSpinBox.setSizePolicy(sizePolicy1)
-        self.tunnelingSectionAStartSpinBox.setValue(20)
-
-        self.gridLayout_4.addWidget(self.tunnelingSectionAStartSpinBox, 0, 2, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+        self.gridLayout_4.addWidget(self.tunnelingSectionAStartDoubleSpinBox, 1, 2, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
 
         self.verticalLayout_12.addWidget(self.tunnelingSectionAStartWidget)
@@ -612,30 +631,31 @@ class Ui_Form(object):
         self.tunnelingSectionAEndSlider.setInvertedControls(False)
         self.tunnelingSectionAEndSlider.setTickPosition(QSlider.TickPosition.TicksAbove)
 
-        self.gridLayout_5.addWidget(self.tunnelingSectionAEndSlider, 1, 2, 1, 1)
+        self.gridLayout_5.addWidget(self.tunnelingSectionAEndSlider, 2, 2, 1, 1)
 
         self.tunnelingSectionAEndTitleLabel = QLabel(self.tunnelingSectionAEndWidget)
         self.tunnelingSectionAEndTitleLabel.setObjectName(u"tunnelingSectionAEndTitleLabel")
 
-        self.gridLayout_5.addWidget(self.tunnelingSectionAEndTitleLabel, 1, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.tunnelingSectionAEndTitleLabel, 2, 0, 1, 1)
 
         self.tunnelingSectionAEndEndLabel = QLabel(self.tunnelingSectionAEndWidget)
         self.tunnelingSectionAEndEndLabel.setObjectName(u"tunnelingSectionAEndEndLabel")
+        self.tunnelingSectionAEndEndLabel.setText(u"2000")
 
-        self.gridLayout_5.addWidget(self.tunnelingSectionAEndEndLabel, 1, 3, 1, 1)
+        self.gridLayout_5.addWidget(self.tunnelingSectionAEndEndLabel, 2, 3, 1, 1)
 
         self.tunnelingSectionAEndStartLabel = QLabel(self.tunnelingSectionAEndWidget)
         self.tunnelingSectionAEndStartLabel.setObjectName(u"tunnelingSectionAEndStartLabel")
+        self.tunnelingSectionAEndStartLabel.setText(u"10")
 
-        self.gridLayout_5.addWidget(self.tunnelingSectionAEndStartLabel, 1, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.tunnelingSectionAEndStartLabel, 2, 1, 1, 1)
 
-        self.tunnelingSectionAEndSpinBox = QSpinBox(self.tunnelingSectionAEndWidget)
-        self.tunnelingSectionAEndSpinBox.setObjectName(u"tunnelingSectionAEndSpinBox")
-        sizePolicy1.setHeightForWidth(self.tunnelingSectionAEndSpinBox.sizePolicy().hasHeightForWidth())
-        self.tunnelingSectionAEndSpinBox.setSizePolicy(sizePolicy1)
-        self.tunnelingSectionAEndSpinBox.setValue(20)
+        self.tunnelingSectionAEndDoubleSpinBox = QDoubleSpinBox(self.tunnelingSectionAEndWidget)
+        self.tunnelingSectionAEndDoubleSpinBox.setObjectName(u"tunnelingSectionAEndDoubleSpinBox")
+        sizePolicy1.setHeightForWidth(self.tunnelingSectionAEndDoubleSpinBox.sizePolicy().hasHeightForWidth())
+        self.tunnelingSectionAEndDoubleSpinBox.setSizePolicy(sizePolicy1)
 
-        self.gridLayout_5.addWidget(self.tunnelingSectionAEndSpinBox, 0, 2, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+        self.gridLayout_5.addWidget(self.tunnelingSectionAEndDoubleSpinBox, 0, 2, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
 
         self.verticalLayout_12.addWidget(self.tunnelingSectionAEndWidget)
@@ -669,21 +689,22 @@ class Ui_Form(object):
 
         self.tunnelingSectionBStartEndLabel = QLabel(self.tunnelingSectionBStartWidget)
         self.tunnelingSectionBStartEndLabel.setObjectName(u"tunnelingSectionBStartEndLabel")
+        self.tunnelingSectionBStartEndLabel.setText(u"2000")
 
         self.gridLayout_6.addWidget(self.tunnelingSectionBStartEndLabel, 1, 3, 1, 1)
 
         self.tunnelingSectionBStartStartLabel = QLabel(self.tunnelingSectionBStartWidget)
         self.tunnelingSectionBStartStartLabel.setObjectName(u"tunnelingSectionBStartStartLabel")
+        self.tunnelingSectionBStartStartLabel.setText(u"10")
 
         self.gridLayout_6.addWidget(self.tunnelingSectionBStartStartLabel, 1, 1, 1, 1)
 
-        self.tunnelingSectionBStartSpinBox = QSpinBox(self.tunnelingSectionBStartWidget)
-        self.tunnelingSectionBStartSpinBox.setObjectName(u"tunnelingSectionBStartSpinBox")
-        sizePolicy1.setHeightForWidth(self.tunnelingSectionBStartSpinBox.sizePolicy().hasHeightForWidth())
-        self.tunnelingSectionBStartSpinBox.setSizePolicy(sizePolicy1)
-        self.tunnelingSectionBStartSpinBox.setValue(20)
+        self.tunnelingSectionBStartDoubleSpinBox = QDoubleSpinBox(self.tunnelingSectionBStartWidget)
+        self.tunnelingSectionBStartDoubleSpinBox.setObjectName(u"tunnelingSectionBStartDoubleSpinBox")
+        sizePolicy1.setHeightForWidth(self.tunnelingSectionBStartDoubleSpinBox.sizePolicy().hasHeightForWidth())
+        self.tunnelingSectionBStartDoubleSpinBox.setSizePolicy(sizePolicy1)
 
-        self.gridLayout_6.addWidget(self.tunnelingSectionBStartSpinBox, 0, 2, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+        self.gridLayout_6.addWidget(self.tunnelingSectionBStartDoubleSpinBox, 0, 2, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
 
         self.verticalLayout_13.addWidget(self.tunnelingSectionBStartWidget)
@@ -712,21 +733,22 @@ class Ui_Form(object):
 
         self.tunnelingSectionBEndEndLabel = QLabel(self.tunnelingSectionBEndWidget)
         self.tunnelingSectionBEndEndLabel.setObjectName(u"tunnelingSectionBEndEndLabel")
+        self.tunnelingSectionBEndEndLabel.setText(u"2000")
 
         self.gridLayout_7.addWidget(self.tunnelingSectionBEndEndLabel, 1, 3, 1, 1)
 
         self.tunnelingSectionBEndStartLabel = QLabel(self.tunnelingSectionBEndWidget)
         self.tunnelingSectionBEndStartLabel.setObjectName(u"tunnelingSectionBEndStartLabel")
+        self.tunnelingSectionBEndStartLabel.setText(u"10")
 
         self.gridLayout_7.addWidget(self.tunnelingSectionBEndStartLabel, 1, 1, 1, 1)
 
-        self.tunnelingSectionBEndSpinBox = QSpinBox(self.tunnelingSectionBEndWidget)
-        self.tunnelingSectionBEndSpinBox.setObjectName(u"tunnelingSectionBEndSpinBox")
-        sizePolicy1.setHeightForWidth(self.tunnelingSectionBEndSpinBox.sizePolicy().hasHeightForWidth())
-        self.tunnelingSectionBEndSpinBox.setSizePolicy(sizePolicy1)
-        self.tunnelingSectionBEndSpinBox.setValue(20)
+        self.tunnelingSectionBEndDoubleSpinBox = QDoubleSpinBox(self.tunnelingSectionBEndWidget)
+        self.tunnelingSectionBEndDoubleSpinBox.setObjectName(u"tunnelingSectionBEndDoubleSpinBox")
+        sizePolicy1.setHeightForWidth(self.tunnelingSectionBEndDoubleSpinBox.sizePolicy().hasHeightForWidth())
+        self.tunnelingSectionBEndDoubleSpinBox.setSizePolicy(sizePolicy1)
 
-        self.gridLayout_7.addWidget(self.tunnelingSectionBEndSpinBox, 0, 2, 1, 1, Qt.AlignmentFlag.AlignHCenter)
+        self.gridLayout_7.addWidget(self.tunnelingSectionBEndDoubleSpinBox, 0, 2, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
 
         self.verticalLayout_13.addWidget(self.tunnelingSectionBEndWidget)
@@ -983,7 +1005,9 @@ class Ui_Form(object):
         sizePolicy1.setHeightForWidth(self.colorBarHeightCoefficientLineEdit.sizePolicy().hasHeightForWidth())
         self.colorBarHeightCoefficientLineEdit.setSizePolicy(sizePolicy1)
         self.colorBarHeightCoefficientLineEdit.setMaximumSize(QSize(200, 16777215))
+        self.colorBarHeightCoefficientLineEdit.setText(u"100")
         self.colorBarHeightCoefficientLineEdit.setMaxLength(5)
+        self.colorBarHeightCoefficientLineEdit.setPlaceholderText(u"")
 
         self.horizontalLayout_12.addWidget(self.colorBarHeightCoefficientLineEdit)
 
@@ -1027,28 +1051,38 @@ class Ui_Form(object):
         if (self.tableWidget.rowCount() < 3):
             self.tableWidget.setRowCount(3)
         __qtablewidgetitem4 = QTableWidgetItem()
+        __qtablewidgetitem4.setText(u"3");
         self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
+        __qtablewidgetitem5.setText(u"1");
         self.tableWidget.setItem(0, 0, __qtablewidgetitem5)
         __qtablewidgetitem6 = QTableWidgetItem()
+        __qtablewidgetitem6.setText(u"1");
         self.tableWidget.setItem(0, 1, __qtablewidgetitem6)
         __qtablewidgetitem7 = QTableWidgetItem()
+        __qtablewidgetitem7.setText(u"18e3");
         self.tableWidget.setItem(0, 2, __qtablewidgetitem7)
         __qtablewidgetitem8 = QTableWidgetItem()
         self.tableWidget.setItem(0, 3, __qtablewidgetitem8)
         __qtablewidgetitem9 = QTableWidgetItem()
+        __qtablewidgetitem9.setText(u"2");
         self.tableWidget.setItem(1, 0, __qtablewidgetitem9)
         __qtablewidgetitem10 = QTableWidgetItem()
+        __qtablewidgetitem10.setText(u"4");
         self.tableWidget.setItem(1, 1, __qtablewidgetitem10)
         __qtablewidgetitem11 = QTableWidgetItem()
+        __qtablewidgetitem11.setText(u"18e3");
         self.tableWidget.setItem(1, 2, __qtablewidgetitem11)
         __qtablewidgetitem12 = QTableWidgetItem()
         self.tableWidget.setItem(1, 3, __qtablewidgetitem12)
         __qtablewidgetitem13 = QTableWidgetItem()
+        __qtablewidgetitem13.setText(u"3");
         self.tableWidget.setItem(2, 0, __qtablewidgetitem13)
         __qtablewidgetitem14 = QTableWidgetItem()
+        __qtablewidgetitem14.setText(u"9");
         self.tableWidget.setItem(2, 1, __qtablewidgetitem14)
         __qtablewidgetitem15 = QTableWidgetItem()
+        __qtablewidgetitem15.setText(u"18e3");
         self.tableWidget.setItem(2, 2, __qtablewidgetitem15)
         __qtablewidgetitem16 = QTableWidgetItem()
         self.tableWidget.setItem(2, 3, __qtablewidgetitem16)
@@ -1115,7 +1149,7 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
 
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Form)
@@ -1125,23 +1159,19 @@ class Ui_Form(object):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Nanotechnologie - Schr\u00f6dingerov\u00e1 rovnice", None))
         self.simulationGroupBox.setTitle(QCoreApplication.translate("Form", u"Simulace", None))
         self.statusLabelTitle.setText(QCoreApplication.translate("Form", u"Stav simulace:", None))
-        self.statusLabelDisplay.setText(QCoreApplication.translate("Form", u"OK", None))
         self.simulationSizeLabelTitle.setText(QCoreApplication.translate("Form", u"Velikost simulace:", None))
-        self.simulationSizeLabelDisplay.setText(QCoreApplication.translate("Form", u"10kB", None))
         self.simulationTimeLabelTitle.setText(QCoreApplication.translate("Form", u"Doba v\u00fdpo\u010dtu simulace:", None))
-        self.simulationTimeLabelDisplay.setText(QCoreApplication.translate("Form", u"0.7 s", None))
         self.clearSimulationButton.setText(QCoreApplication.translate("Form", u"Vy\u010distit simulaci", None))
         self.resimulateButton.setText(QCoreApplication.translate("Form", u"P\u0159epo\u010d\u00edtat simulaci", None))
-        self.pocetPrvkuMaximumLabel.setText(QCoreApplication.translate("Form", u"2000", None))
         self.pocetPrvkuLabel.setText(QCoreApplication.translate("Form", u"Po\u010det simula\u010dn\u00edch prvk\u016f (v\u00edc prvk\u016f = vy\u0161\u0161\u00ed p\u0159esnost, vy\u0161\u0161\u00ed n\u00e1roky na v\u00fdpo\u010det a pam\u011b\u0165)", None))
-        self.pocetPrvkuMinimumLabel.setText(QCoreApplication.translate("Form", u"10", None))
-        self.pocetPrvkuCurrentLabel.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>20</p></body></html>", None))
         self.simulationWidthLabel.setText(QCoreApplication.translate("Form", u"\u0160\u00ed\u0159ka simulace (nm)", None))
-        self.simulationWidthLineEdit.setText(QCoreApplication.translate("Form", u"100", None))
-        self.simulationWidthLineEdit.setPlaceholderText(QCoreApplication.translate("Form", u"100", None))
         self.basePotentialLabel.setText(QCoreApplication.translate("Form", u"Z\u00e1kladn\u00ed hladina potenci\u00e1lu (eV)", None))
         self.basePotentialLineEdit.setPlaceholderText(QCoreApplication.translate("Form", u"0.3", None))
         self.particelWeightLabel.setText(QCoreApplication.translate("Form", u"Hmotnost \u010d\u00e1stice (kg)", None))
+        self.particleWeightComboBox.setItemText(0, QCoreApplication.translate("Form", u"Elektron (9.109e-31)", None))
+        self.particleWeightComboBox.setItemText(1, QCoreApplication.translate("Form", u"Proton (1.673e-27)", None))
+        self.particleWeightComboBox.setItemText(2, QCoreApplication.translate("Form", u"Vlastn\u00ed \u010d\u00e1stice", None))
+
         self.customParticleWeightLabel.setText(QCoreApplication.translate("Form", u"nebo vlastn\u00ed hmotnost \u010d\u00e1stice (kg)", None))
         self.customParticleWeightLineEdit.setPlaceholderText(QCoreApplication.translate("Form", u"1.234e-56", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.environmentTab), QCoreApplication.translate("Form", u"Prost\u0159ed\u00ed", None))
@@ -1171,30 +1201,20 @@ class Ui_Form(object):
         self.elementListButtonUp.setText(QCoreApplication.translate("Form", u" \u2191", None))
         self.editElementTitleLabel.setText(QCoreApplication.translate("Form", u"Upravit energii 1", None))
         self.editElementStartTitleLabel.setText(QCoreApplication.translate("Form", u"Po\u010d\u00e1tek \u00fapravy", None))
-        self.editElementStartStatusLabel.setText(QCoreApplication.translate("Form", u"20", None))
         self.editElementEndTitleLabel.setText(QCoreApplication.translate("Form", u"Konec \u00fapravy", None))
-        self.editElementEndStatusLabel.setText(QCoreApplication.translate("Form", u"50", None))
         self.newPotentialLabel.setText(QCoreApplication.translate("Form", u"Nov\u00fd potenci\u00e1l (eV)", None))
         self.newPotentialLineEdit.setText(QCoreApplication.translate("Form", u"0.0", None))
-        self.newPotentialLineEdit.setPlaceholderText(QCoreApplication.translate("Form", u"100", None))
+        self.newPotentialLineEdit.setPlaceholderText(QCoreApplication.translate("Form", u"0.3", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.potencialTab), QCoreApplication.translate("Form", u"\u00dapr\u00e1va potenci\u00e1lu", None))
         self.tunnelingGroupBox.setTitle(QCoreApplication.translate("Form", u"Graf tunelov\u00e1n\u00ed", None))
         self.placeholderTunnelingLabel.setText(QCoreApplication.translate("Form", u"Zde bude T=f(E/E_B) graf", None))
         self.tunnelingHintLabel.setText(QCoreApplication.translate("Form", u"Vyberte dva \u00faseky (nap\u0159\u00edklad dv\u011b j\u00e1my) pro zm\u011b\u0159en\u00ed tunelov\u00e1n\u00ed", None))
         self.tunnelingSectionAGroupBox.setTitle(QCoreApplication.translate("Form", u"\u00dasek \u03a8a", None))
         self.tunnelingSectionAStartTitleLabel.setText(QCoreApplication.translate("Form", u"Po\u010d\u00e1tek \u00faseku", None))
-        self.tunnelingSectionAStartEndRangeLabel.setText(QCoreApplication.translate("Form", u"2000", None))
-        self.tunnelingSectionAStartStartLabel.setText(QCoreApplication.translate("Form", u"10", None))
         self.tunnelingSectionAEndTitleLabel.setText(QCoreApplication.translate("Form", u"Konec \u00faseku", None))
-        self.tunnelingSectionAEndEndLabel.setText(QCoreApplication.translate("Form", u"2000", None))
-        self.tunnelingSectionAEndStartLabel.setText(QCoreApplication.translate("Form", u"10", None))
         self.tunnelingSectionBGroupBox.setTitle(QCoreApplication.translate("Form", u"\u00dasek \u03a8b", None))
         self.tunnelingSectionBStartTitleLabel.setText(QCoreApplication.translate("Form", u"Po\u010d\u00e1tek \u00faseku", None))
-        self.tunnelingSectionBStartEndLabel.setText(QCoreApplication.translate("Form", u"2000", None))
-        self.tunnelingSectionBStartStartLabel.setText(QCoreApplication.translate("Form", u"10", None))
         self.tunnelingSectionBEndTitleLabel.setText(QCoreApplication.translate("Form", u"Konec \u00faseku", None))
-        self.tunnelingSectionBEndEndLabel.setText(QCoreApplication.translate("Form", u"2000", None))
-        self.tunnelingSectionBEndStartLabel.setText(QCoreApplication.translate("Form", u"10", None))
         self.tunnelingContainLevelsAboveBarrierCheckBox.setText(QCoreApplication.translate("Form", u"Zahrnout hladiny nad bari\u00e9rou", None))
         self.tunnelingContainLevelsAboveBarrierLabel.setText(QCoreApplication.translate("Form", u"hladin nad bari\u00e9rou", None))
         self.tunnelingDirectionGroupBox.setTitle(QCoreApplication.translate("Form", u"Sm\u011br tunelov\u00e1n\u00ed", None))
@@ -1221,8 +1241,6 @@ class Ui_Form(object):
         self.squarePsiCheckBox.setText(QCoreApplication.translate("Form", u"P\u0159ev\u00e9st vlnovou funkci na hustotu pravd\u011bpodobnosti (\u03c8\u2192\u03c8\u03c8*)", None))
         self.psiAsColorBarCheckBox.setText(QCoreApplication.translate("Form", u"Zn\u00e1zornit vlnovou funkci jako barevn\u00fd pruh", None))
         self.colorBarHeightCoefficientLabel.setText(QCoreApplication.translate("Form", u"Koeficient v\u00fd\u0161ky barevn\u00e9ho pruhu", None))
-        self.colorBarHeightCoefficientLineEdit.setText(QCoreApplication.translate("Form", u"100", None))
-        self.colorBarHeightCoefficientLineEdit.setPlaceholderText(QCoreApplication.translate("Form", u"100", None))
         self.applyChangesButton.setText(QCoreApplication.translate("Form", u"Aplikovat zm\u011bny", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.resultTab), QCoreApplication.translate("Form", u"Zobrazen\u00ed v\u00fdsledku", None))
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
@@ -1231,29 +1249,9 @@ class Ui_Form(object):
         ___qtablewidgetitem1.setText(QCoreApplication.translate("Form", u"En [eV]", None));
         ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("Form", u"\u03a8max [-]", None));
-        ___qtablewidgetitem3 = self.tableWidget.verticalHeaderItem(0)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("Form", u"3", None));
 
         __sortingEnabled2 = self.tableWidget.isSortingEnabled()
         self.tableWidget.setSortingEnabled(False)
-        ___qtablewidgetitem4 = self.tableWidget.item(0, 0)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("Form", u"1", None));
-        ___qtablewidgetitem5 = self.tableWidget.item(0, 1)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("Form", u"1", None));
-        ___qtablewidgetitem6 = self.tableWidget.item(0, 2)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("Form", u"18e3", None));
-        ___qtablewidgetitem7 = self.tableWidget.item(1, 0)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("Form", u"2", None));
-        ___qtablewidgetitem8 = self.tableWidget.item(1, 1)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("Form", u"4", None));
-        ___qtablewidgetitem9 = self.tableWidget.item(1, 2)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("Form", u"18e3", None));
-        ___qtablewidgetitem10 = self.tableWidget.item(2, 0)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("Form", u"3", None));
-        ___qtablewidgetitem11 = self.tableWidget.item(2, 1)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("Form", u"9", None));
-        ___qtablewidgetitem12 = self.tableWidget.item(2, 2)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("Form", u"18e3", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled2)
 
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.energyLevelsTableTab), QCoreApplication.translate("Form", u"Tabulka energetick\u00fdch hladin", None))

@@ -15,7 +15,7 @@ class Situace():
                  energie: Real = 1.0,
                  normalizovat_vysledek: bool = False,
                  posunout_psi_na_e: bool = False,
-                 bariera_na_sekundarni_ose: bool = False,
+                 bariera_na_sekundarni_ose: bool = True,
                  hladiny_jsou_barevne_pruhy: bool = False,
                  koeficient_vysky_pruhu: Real = 20,
                  pocet_vykreslenych_energetickych_hladin: int = 10,
@@ -51,6 +51,9 @@ class Situace():
     def prepocitat_osu_x(self) -> tuple[np.ndarray, float]:
         self.osa_x = np.linspace(self.pocatek_osy,self.konec_osy,self.pocet_prvku)
         self.dx = self.osa_x[1] - self.osa_x[0]
+        
+        print(self.osa_x)
+        print(self.dx)
         
         return self.osa_x, self.dx
     
