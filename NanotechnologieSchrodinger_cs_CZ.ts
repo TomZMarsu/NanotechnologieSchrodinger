@@ -77,7 +77,7 @@
     <message>
         <location filename="mainWindow.ui" line="457"/>
         <source>1.234e-56</source>
-        <translation>1,234e-56</translation>
+        <translation>1,234E-56</translation>
     </message>
     <message>
         <location filename="mainWindow.ui" line="484"/>

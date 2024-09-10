@@ -47,18 +47,25 @@ class MainWindow(QWidget):
         
         # Environment tab
         # ---------------------
-        # POCET PRVKU
+        # MATRIX ELEMENT COUNT
         # ---
         self.ui.pocetPrvkuSlider.valueChanged.connect(self.pocetPrvkuSliderValueChanged)
         
-        # HMOTNOST CASTICE
+        # PARTICLE WEIGHT
         # ---
         self.ui.particleWeightComboBox.addItems(["Elektron (9.109e-31)", "Proton (1.673e-27)", "Vlastní částice"])
         self.ui.particleWeightComboBox.currentTextChanged.connect(self.hmotnostCasticeComboBoxCurrentTextChanged)
-        self.vlastniHmotnostCasticeLineEditValidator = QDoubleValidator()
-        self.vlastniHmotnostCasticeLineEditValidator.setRange(0,1.0e50)
-        self.vlastniHmotnostCasticeLineEditValidator.setNotation(QDoubleValidator.Notation.ScientificNotation)
-        self.ui.customParticleWeightLineEdit.setValidator(self.vlastniHmotnostCasticeLineEditValidator)
+        self.ui.customParticleWeightLineEdit.setValidator(self.createSpatialFloatValidator())
+        
+        # SIMULATION WIDTH
+        # ---
+        self.ui.simulationWidthLineEdit.setValidator(self.createSpatialFloatValidator())
+        
+        # BASE POTENTIAL
+        # ---
+        self.ui.basePotentialLineEdit.setValidator(self.createSpatialFloatValidator())
+        
+        
         
         # Status bar
         # ====================================================
@@ -117,8 +124,11 @@ class MainWindow(QWidget):
         if lineEdit.validator():
             lineEdit.validator().setLocale(self.locale())
         
-        if(lineEdit.text() != ""):
+        if lineEdit.text() != "":
             lineEdit.setText(self.locale().toString(lineEditValue, format="g"))
+        
+        if lineEdit.text() == "inf":
+            lineEdit.setText("")
     
     def translateUI(self):
         QApplication.instance().installTranslator(self.translator)
@@ -128,7 +138,15 @@ class MainWindow(QWidget):
         self.translateFloatLineEdit(self.ui.customParticleWeightLineEdit)
         self.translateFloatLineEdit(self.ui.basePotentialLineEdit)
         self.translateFloatLineEdit(self.ui.simulationWidthLineEdit)
+    
+    def createSpatialFloatValidator(self) -> QDoubleValidator:
+        validator = QDoubleValidator()
+        validator.setLocale(self.locale())
+        validator.setRange(0,1.0e50)
+        validator.setNotation(QDoubleValidator.Notation.ScientificNotation)
         
+        return validator
+    
     def nastrelit_situaci(self) -> Situace:
         situace = Situace(konec_osy=100,
                           posunout_psi_na_e=True,

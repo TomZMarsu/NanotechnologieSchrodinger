@@ -334,7 +334,7 @@
              <string notr="true">100</string>
             </property>
             <property name="maxLength">
-             <number>5</number>
+             <number>30</number>
             </property>
             <property name="placeholderText">
              <string notr="true"/>
@@ -376,6 +376,9 @@
             </property>
             <property name="text">
              <string notr="true"/>
+            </property>
+            <property name="maxLength">
+             <number>30</number>
             </property>
             <property name="placeholderText">
              <string>0.3</string>
@@ -452,6 +455,9 @@
             </property>
             <property name="text">
              <string notr="true"/>
+            </property>
+            <property name="maxLength">
+             <number>30</number>
             </property>
             <property name="placeholderText">
              <string>1.234e-56</string>

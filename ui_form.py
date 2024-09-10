@@ -233,7 +233,7 @@ class Ui_Form(object):
         self.simulationWidthLineEdit.setObjectName(u"simulationWidthLineEdit")
         self.simulationWidthLineEdit.setMaximumSize(QSize(200, 16777215))
         self.simulationWidthLineEdit.setText(u"100")
-        self.simulationWidthLineEdit.setMaxLength(5)
+        self.simulationWidthLineEdit.setMaxLength(30)
         self.simulationWidthLineEdit.setPlaceholderText(u"")
 
         self.horizontalLayout_5.addWidget(self.simulationWidthLineEdit)
@@ -258,6 +258,7 @@ class Ui_Form(object):
         self.basePotentialLineEdit.setObjectName(u"basePotentialLineEdit")
         self.basePotentialLineEdit.setMaximumSize(QSize(200, 16777215))
         self.basePotentialLineEdit.setText(u"")
+        self.basePotentialLineEdit.setMaxLength(30)
 
         self.horizontalLayout_8.addWidget(self.basePotentialLineEdit)
 
@@ -297,6 +298,7 @@ class Ui_Form(object):
         self.customParticleWeightLineEdit.setEnabled(False)
         self.customParticleWeightLineEdit.setMaximumSize(QSize(200, 16777215))
         self.customParticleWeightLineEdit.setText(u"")
+        self.customParticleWeightLineEdit.setMaxLength(30)
 
         self.horizontalLayout_6.addWidget(self.customParticleWeightLineEdit)
 
