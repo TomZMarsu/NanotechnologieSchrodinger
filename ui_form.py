@@ -257,7 +257,7 @@ class Ui_Form(object):
         self.basePotentialLineEdit = QLineEdit(self.basePotentialWidget)
         self.basePotentialLineEdit.setObjectName(u"basePotentialLineEdit")
         self.basePotentialLineEdit.setMaximumSize(QSize(200, 16777215))
-        self.basePotentialLineEdit.setText(u"")
+        self.basePotentialLineEdit.setText(u"0.3")
         self.basePotentialLineEdit.setMaxLength(30)
 
         self.horizontalLayout_8.addWidget(self.basePotentialLineEdit)
@@ -279,6 +279,9 @@ class Ui_Form(object):
         self.horizontalLayout_6.addWidget(self.particelWeightLabel)
 
         self.particleWeightComboBox = QComboBox(self.particleWeightWidget)
+        self.particleWeightComboBox.addItem("")
+        self.particleWeightComboBox.addItem("")
+        self.particleWeightComboBox.addItem("")
         self.particleWeightComboBox.setObjectName(u"particleWeightComboBox")
         self.particleWeightComboBox.setEnabled(True)
         self.particleWeightComboBox.setMinimumSize(QSize(200, 0))
@@ -1165,6 +1168,10 @@ class Ui_Form(object):
         self.basePotentialLabel.setText(QCoreApplication.translate("Form", u"Z\u00e1kladn\u00ed hladina potenci\u00e1lu (eV)", None))
         self.basePotentialLineEdit.setPlaceholderText(QCoreApplication.translate("Form", u"0.3", None))
         self.particelWeightLabel.setText(QCoreApplication.translate("Form", u"Hmotnost \u010d\u00e1stice (kg)", None))
+        self.particleWeightComboBox.setItemText(0, QCoreApplication.translate("Form", u"Elektron (9.109e-31)", None))
+        self.particleWeightComboBox.setItemText(1, QCoreApplication.translate("Form", u"Proton (1.673e-27)", None))
+        self.particleWeightComboBox.setItemText(2, QCoreApplication.translate("Form", u"Vlastn\u00ed \u010d\u00e1stice", None))
+
         self.customParticleWeightLabel.setText(QCoreApplication.translate("Form", u"nebo vlastn\u00ed hmotnost \u010d\u00e1stice (kg)", None))
         self.customParticleWeightLineEdit.setPlaceholderText(QCoreApplication.translate("Form", u"1.234e-56", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.environmentTab), QCoreApplication.translate("Form", u"Prost\u0159ed\u00ed", None))

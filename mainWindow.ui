@@ -375,7 +375,7 @@
              </size>
             </property>
             <property name="text">
-             <string notr="true"/>
+             <string notr="true">0.3</string>
             </property>
             <property name="maxLength">
              <number>30</number>
@@ -427,6 +427,21 @@
               <height>16777215</height>
              </size>
             </property>
+            <item>
+             <property name="text">
+              <string>Elektron (9.109e-31)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Proton (1.673e-27)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Vlastní částice</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
