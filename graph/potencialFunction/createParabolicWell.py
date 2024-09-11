@@ -4,12 +4,12 @@ import numpy as np
 
 from typing import TYPE_CHECKING
 
-from graph.potencialove_funkce.potencialova_funkce import Potencialova_funkce
+from graph.potencialFunction.potencialFunction import PotencialFunction
 
 if TYPE_CHECKING:
     from graph.situation import Situation
 
-class Vytvorit_parabolickou_jamu(Potencialova_funkce):
+class CreateParabolicWell(PotencialFunction):
     def __init__(self, situace: 'Situation', pocatek: Real, konec: Real, energie_na_hrane: Real) -> None:
         super().__init__(situace)
         

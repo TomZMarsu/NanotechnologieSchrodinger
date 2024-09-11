@@ -3,12 +3,12 @@ import numpy as np
 
 from typing import TYPE_CHECKING
 
-from graph.potencialove_funkce.potencialova_funkce import Potencialova_funkce
+from graph.potencialFunction.potencialFunction import PotencialFunction
 
 if TYPE_CHECKING:
     from graph.situation import Situation
 
-class Upravit_energii(Potencialova_funkce):
+class ModifyEnergy(PotencialFunction):
     def __init__(self, situace: 'Situation', pocatek: Real, konec: Real, energie: Real) -> None:
         super().__init__(situace)
     

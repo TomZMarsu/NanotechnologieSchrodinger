@@ -4,7 +4,7 @@ from typing import Final
 from numbers import Real
 import time
 
-from graph.potencialove_funkce.potencialova_funkce import Potencialova_funkce
+from graph.potencialFunction.potencialFunction import PotencialFunction
 
 class Situation():
     def __init__(self, 
@@ -19,7 +19,7 @@ class Situation():
                  isLevelColorbar: bool = False,
                  colorbarHeightCoeff: Real = 20,
                  energyLevelDrawCount: int = 10,
-                 functionsModifyingPotential: list[Potencialova_funkce] = []
+                 functionsModifyingPotential: list[PotencialFunction] = []
                  ):
         
         # Zpracovani argumentu konstruktoru

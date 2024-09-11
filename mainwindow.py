@@ -14,8 +14,8 @@ import numpy as np
 #     pyside6-uic form.ui -o ui_form.py, or
 #     pyside2-uic form.ui -o ui_form.py
 from graph.physics import eV, h_bar, nm
-from graph.potencialove_funkce.upravit_energii import Upravit_energii
-from graph.potencialove_funkce.vytvorit_parabolickou_jamu import Vytvorit_parabolickou_jamu
+from graph.potencialFunction.modifyPotential import ModifyEnergy
+from graph.potencialFunction.createParabolicWell import CreateParabolicWell
 from graph.situation import Situation
 from ui import simulationStatus
 from ui_form import Ui_Form
@@ -213,8 +213,8 @@ class MainWindow(QWidget):
                           xAxisStart=-10
                           )
         
-        uprava_energie1 = Upravit_energii(situace, 10, 40, 0)
-        uprava_energie2 = Vytvorit_parabolickou_jamu(situace, 40, 70, situace.basePotencial)
+        uprava_energie1 = ModifyEnergy(situace, 10, 40, 0)
+        uprava_energie2 = CreateParabolicWell(situace, 40, 70, situace.basePotencial)
         
         situace.functionsModifyingPotential.append(uprava_energie1)
         situace.functionsModifyingPotential.append(uprava_energie2)

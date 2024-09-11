@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from graph.situation import Situation
 
-class Potencialova_funkce():
+class PotencialFunction():
     def __init__(self, situace: 'Situation') -> None:
         self.situace = situace
     
