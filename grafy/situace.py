@@ -10,7 +10,7 @@ class Situace():
     def __init__(self, 
                  pocet_prvku: int = 500, 
                  pocatek_osy: Real = 0, 
-                 konec_osy: Real = 0,
+                 konec_osy: Real = 1,
                  alfa: Real = 1.0,
                  energie: Real = 1.0,
                  normalizovat_vysledek: bool = False,
@@ -51,9 +51,6 @@ class Situace():
     def prepocitat_osu_x(self) -> tuple[np.ndarray, float]:
         self.osa_x = np.linspace(self.pocatek_osy,self.konec_osy,self.pocet_prvku)
         self.dx = self.osa_x[1] - self.osa_x[0]
-        
-        print(self.osa_x)
-        print(self.dx)
         
         return self.osa_x, self.dx
     

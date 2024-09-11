@@ -1,10 +1,13 @@
 # This Python file uses the following encoding: utf-8
 import sys
+import threading
+import time
 from PySide6.QtWidgets import QApplication, QWidget, QLineEdit
 from PySide6 import QtCore as qtc
 from PySide6.QtGui import QDoubleValidator
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+import numpy as np
 
 # Important:
 # You need to run the following command to generate the ui_form.py file
@@ -14,6 +17,7 @@ from grafy.fyzika import eV, h_bar, nm
 from grafy.potencialove_funkce.upravit_energii import Upravit_energii
 from grafy.potencialove_funkce.vytvorit_parabolickou_jamu import Vytvorit_parabolickou_jamu
 from grafy.situace import Situace
+from ui import simulationStatus
 from ui_form import Ui_Form
 
 class MainWindow(QWidget):
@@ -66,7 +70,11 @@ class MainWindow(QWidget):
         # ---
         self.ui.basePotentialLineEdit.setValidator(self.createSpatialFloatValidator())
         
-        
+        # Situace
+        # =====================================================
+        self.situace: Situace = self.init_situace()
+        self.resimulate()
+       
         
         # Status bar
         # ====================================================
@@ -76,11 +84,6 @@ class MainWindow(QWidget):
         self.ui.englishRadioButton.clicked.connect(self.englishRadioButtonPressed)
         
         self.ui.englishRadioButton.click()
-        
-        # Situace
-        # =====================================================
-        self.situace: Situace = self.init_situace()
-        self.resimulate()
     
     def getParticleWeight(self) -> float:
         weight_str = self.ui.particleWeightComboBox.currentText()
@@ -102,9 +105,9 @@ class MainWindow(QWidget):
         return situace
         
     def getEnvironmentSettings(self, situace) -> Situace:
-        situace.alfa = (h_bar**2)/(2*self.getParticleWeight())
         situace.konec_osy = self.getLineEditFloat(self.ui.simulationWidthLineEdit)*nm
         situace.pocet_prvku = self.ui.pocetPrvkuSlider.value()
+        situace.alfa = (h_bar**2)/(2*self.getParticleWeight())
         situace.energie = self.getLineEditFloat(self.ui.basePotentialLineEdit)*eV
         
         return situace
@@ -152,12 +155,18 @@ class MainWindow(QWidget):
     
     def translateUI(self):
         QApplication.instance().installTranslator(self.translator)
+        # Retranslate rest
         self.ui.retranslateUi(self)
+        simulationStatus.translateSimulationTime(self)
+        simulationStatus.translateSimulationSize(self)
         
         # Set line edit decimals
         self.translateFloatLineEdit(self.ui.customParticleWeightLineEdit)
         self.translateFloatLineEdit(self.ui.basePotentialLineEdit)
         self.translateFloatLineEdit(self.ui.simulationWidthLineEdit)
+        
+        # Set locale for elements
+        
     
     def createSpatialFloatValidator(self) -> QDoubleValidator:
         validator = QDoubleValidator()
@@ -168,6 +177,12 @@ class MainWindow(QWidget):
         return validator
     
     def resimulate(self):
+        simulationStatus.setCurrentStatus(self, simulationStatus.SimulationStatus.IN_PROGRESS)
+        thread = threading.Thread(target=self.resimulate_thread)
+        thread.start()
+    
+    def resimulate_thread(self):
+        
         self.situace = self.getEnvironmentSettings(self.situace)
         self.ax.clear()
         
@@ -175,9 +190,20 @@ class MainWindow(QWidget):
             self.ax2.clear()
         
         self.situace.prepocitat_pripravu()
-        self.situace.vyresit_rovnici()
+        E,psi, computation_time = self.situace.vyresit_rovnici()
+        
+        plot_time_begin = time.time()
         self.vykreslit_graf(self.situace)
         self.simulationCanvas.draw()
+        plot_time_end = time.time()
+        
+        total_time: float = (plot_time_end-plot_time_begin) + computation_time
+        
+        simulationStatus.setSimulationTime(self, total_time)
+        simulationStatus.setSimulationSize(self, E, psi, self.situace.hlavni_diagonala, self.situace.vedlejsi_diagonala)
+        simulationStatus.setCurrentStatus(self, simulationStatus.SimulationStatus.OK)
+        
+        
     
     @qtc.Slot()
     def resimulateButtonPressed(self):

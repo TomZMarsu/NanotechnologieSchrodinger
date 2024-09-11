@@ -366,16 +366,31 @@
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;GNU GPL v3.0&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mainWindow.py" line="82"/>
+        <location filename="mainWindow.py" line="91"/>
         <location filename="mainWindow.ui" line="432"/>
         <source>Elektron (9.109e-31)</source>
         <translation>Electron (9.109e-31)</translation>
     </message>
     <message>
-        <location filename="mainWindow.py" line="84"/>
+        <location filename="mainWindow.py" line="93"/>
         <location filename="mainWindow.ui" line="437"/>
         <source>Proton (1.673e-27)</source>
         <translation>Proton (1.673e-27)</translation>
+    </message>
+    <message>
+        <location filename="ui/simulationStatus.py" line="19"/>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <location filename="ui/simulationStatus.py" line="22"/>
+        <source>In progress</source>
+        <translation>In progress</translation>
+    </message>
+    <message>
+        <location filename="ui/simulationStatus.py" line="26"/>
+        <source>Settings error</source>
+        <translation>Settings error</translation>
     </message>
 </context>
 </TS>
