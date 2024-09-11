@@ -16,7 +16,7 @@ import numpy as np
 from graph.fyzika import eV, h_bar, nm
 from graph.potencialove_funkce.upravit_energii import Upravit_energii
 from graph.potencialove_funkce.vytvorit_parabolickou_jamu import Vytvorit_parabolickou_jamu
-from graph.situace import Situace
+from graph.situation import Situation
 from ui import simulationStatus
 from ui_form import Ui_Form
 
@@ -71,7 +71,7 @@ class MainWindow(QWidget):
         
         # Situace
         # =====================================================
-        self.situace: Situace = self.init_situace()
+        self.situace: Situation = self.init_situace()
         self.resimulate()
        
         
@@ -97,13 +97,13 @@ class MainWindow(QWidget):
     def getLineEditFloat(self, lineEdit) -> float:
         return lineEdit.locale().toFloat(lineEdit.text())[0]
         
-    def init_situace(self) -> Situace:
-        situace = Situace()
+    def init_situace(self) -> Situation:
+        situace = Situation()
         situace = self.getEnvironmentSettings(situace)
         
         return situace
         
-    def getEnvironmentSettings(self, situace) -> Situace:
+    def getEnvironmentSettings(self, situace) -> Situation:
         situace.konec_osy = self.getLineEditFloat(self.ui.simulationWidthLineEdit)*nm
         situace.pocet_prvku = self.ui.pocetPrvkuSlider.value()
         situace.alfa = (h_bar**2)/(2*self.getParticleWeight())
@@ -188,8 +188,8 @@ class MainWindow(QWidget):
         if self.ax2:
             self.ax2.clear()
         
-        self.situace.prepocitat_pripravu()
-        E,psi, computation_time = self.situace.vyresit_rovnici()
+        self.situace.recalculatePresolve()
+        E,psi, computation_time = self.situace.solveMatrix()
         
         plot_time_begin = time.time()
         self.vykreslit_graf(self.situace)
@@ -199,7 +199,7 @@ class MainWindow(QWidget):
         total_time: float = (plot_time_end-plot_time_begin) + computation_time
         
         simulationStatus.setSimulationTime(self, total_time)
-        simulationStatus.setSimulationSize(self, E, psi, self.situace.hlavni_diagonala, self.situace.vedlejsi_diagonala)
+        simulationStatus.setSimulationSize(self, E, psi, self.situace.mainDiagonal, self.situace.offDiagonal)
         simulationStatus.setCurrentStatus(self, simulationStatus.SimulationStatus.OK)
         
         
@@ -208,55 +208,55 @@ class MainWindow(QWidget):
     def resimulateButtonPressed(self):
         self.resimulate()
         
-    def nastrelit_situaci(self) -> Situace:
-        situace = Situace(konec_osy=100,
-                          posunout_psi_na_e=True,
-                          normalizovat_vysledek=True,
-                          pocet_vykreslenych_energetickych_hladin=30,
-                          pocatek_osy=-10
+    def nastrelit_situaci(self) -> Situation:
+        situace = Situation(xAxisEnd=100,
+                          isPsiOnSameLevelAsE=True,
+                          isResultNormalized=True,
+                          energyLevelDrawCount=30,
+                          xAxisStart=-10
                           )
         
         uprava_energie1 = Upravit_energii(situace, 10, 40, 0)
-        uprava_energie2 = Vytvorit_parabolickou_jamu(situace, 40, 70, situace.energie)
+        uprava_energie2 = Vytvorit_parabolickou_jamu(situace, 40, 70, situace.basePotencial)
         
-        situace.funkce_upravujici_potencial.append(uprava_energie1)
-        situace.funkce_upravujici_potencial.append(uprava_energie2)
+        situace.functionsModifyingPotential.append(uprava_energie1)
+        situace.functionsModifyingPotential.append(uprava_energie2)
         
-        situace.prepocitat_pripravu()
-        situace.vyresit_rovnici()
+        situace.recalculatePresolve()
+        situace.solveMatrix()
         
         return situace
     
-    def vykreslit_graf(self, situace: Situace) -> None:
-        self.osa_x_nm = situace.osa_x/nm
-        self.v0_ev = situace.v0/eV
+    def vykreslit_graf(self, situation: Situation) -> None:
+        self.xAxis_nm = situation.xAxis/nm
+        self.v0_ev = situation.v0/eV
         
-        for i in range(0,situace.pocet_vykreslenych_energetickych_hladin):
-            matice_i = situace.psi.T[i]
-            matice_i = situace.normalizovat_psi(matice_i)
+        for i in range(0,situation.energyLevelDrawCount):
+            matice_i = situation.psi.T[i]
+            matice_i = situation.normalizePsi(matice_i)
             
-            if situace.normalizovat_vysledek:
+            if situation.isResultNormalized:
                 matice_i = matice_i**2
             
-            if situace.posunout_psi_na_e:
-                matice_i += situace.E[i]/eV
+            if situation.isPsiOnSameLavelAsE:
+                matice_i += situation.E[i]/eV
 
-            if situace.hladiny_jsou_barevne_pruhy:
-                heatmap_body_y = np.full(situace.pocet_prvku, situace.E[i]/eV)
-                vyska = (situace.E[i+1] - situace.E[i])*situace.koeficient_vysky_pruhu
-                self.ax.scatter(self.osa_x_nm,heatmap_body_y,c=matice_i, cmap="plasma", s=vyska)
+            if situation.isLevelColorbar:
+                heatmap_body_y = np.full(situation.elementCount, situation.E[i]/eV)
+                vyska = (situation.E[i+1] - situation.E[i])*situation.colorbarHeightCoeff
+                self.ax.scatter(self.xAxis_nm,heatmap_body_y,c=matice_i, cmap="plasma", s=vyska)
             else:
-                self.ax.plot(self.osa_x_nm,matice_i)
+                self.ax.plot(self.xAxis_nm,matice_i)
 
-        if situace.bariera_na_sekundarni_ose:
+        if situation.isPotentialOnSecondaryAxis:
             if self.ax2 is None:
                 self.ax2 = self.ax.twinx()
                 
-            self.ax2.plot(self.osa_x_nm, self.v0_ev, color="black")
+            self.ax2.plot(self.xAxis_nm, self.v0_ev, color="black")
             self.ax2.set_ylabel(qtc.QCoreApplication.translate("Form", "Potencial [eV]", None))
             self.ax.set_ylabel(qtc.QCoreApplication.translate("Form", "$Ψ^2$ [-]", None))
         else:
-            self.ax.plot(self.osa_x_nm, self.v0_ev, color="black")
+            self.ax.plot(self.xAxis_nm, self.v0_ev, color="black")
             self.ax.set_ylabel(f"{qtc.QCoreApplication.translate("Form", "$Ψ^2$ [-]", None)} / {qtc.QCoreApplication.translate("Form", "Potencial [eV]}", None)}")
 
         self.ax.set_xlabel(qtc.QCoreApplication.translate("Form", "x [nm]", None))
