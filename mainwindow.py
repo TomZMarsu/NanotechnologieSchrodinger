@@ -37,7 +37,6 @@ class MainWindow(QWidget):
         # Grafy
         # ====================================================
         # Simulation
-        plt.rcParams['text.usetex'] = True
         px = 1/plt.rcParams['figure.dpi']  # pixel in inches
 
         self.figure, self.ax = plt.subplots(constrained_layout=True)
@@ -127,7 +126,7 @@ class MainWindow(QWidget):
     @qtc.Slot()
     def czechRadioButtonPressed(self, checked):
         if checked:
-            self.translator.load("NanotechnologieSchrodinger_cs_CZ")
+            self.translator.load("./lang/NanotechnologieSchrodinger_cs_CZ")
             QApplication.instance().installTranslator(self.translator)
             self.setLocale(self.czechLocale)
             self.translateUI()
@@ -135,7 +134,7 @@ class MainWindow(QWidget):
     @qtc.Slot()
     def englishRadioButtonPressed(self, checked):
         if checked:
-            self.translator.load("NanotechnologieSchrodinger_en_US")
+            self.translator.load("./lang/NanotechnologieSchrodinger_en_US")
             self.setLocale(self.englishLocale)
             self.translateUI()
     
@@ -254,13 +253,13 @@ class MainWindow(QWidget):
                 self.ax2 = self.ax.twinx()
                 
             self.ax2.plot(self.osa_x_nm, self.v0_ev, color="black")
-            self.ax2.set_ylabel("Energie bariery [-]")
-            self.ax.set_ylabel(r"$\psi^2$ (Normalizováno) [-]")
+            self.ax2.set_ylabel(qtc.QCoreApplication.translate("Form", "Potencial [eV]", None))
+            self.ax.set_ylabel(qtc.QCoreApplication.translate("Form", "$Ψ^2$ [-]", None))
         else:
             self.ax.plot(self.osa_x_nm, self.v0_ev, color="black")
-            self.ax.set_ylabel(r"$\psi^2$ (Normalizováno) [-] / Potenciál $V$ [eV]")
+            self.ax.set_ylabel(f"{qtc.QCoreApplication.translate("Form", "$Ψ^2$ [-]", None)} / {qtc.QCoreApplication.translate("Form", "Potencial [eV]}", None)}")
 
-        self.ax.set_xlabel("x [nm]")
+        self.ax.set_xlabel(qtc.QCoreApplication.translate("Form", "x [nm]", None))
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

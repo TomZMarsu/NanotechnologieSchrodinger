@@ -5,14 +5,17 @@ a = Analysis(
     ['mainwindow.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[
+        ( '/lang/NanotechnologieSchrodinger_cs_CZ.qm', 'lang'),
+        ( '/lang/NanotechnologieSchrodinger_en_US.qm', 'lang')
+    ],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
     excludes=[],
     noarchive=False,
-    optimize=0,
+    optimize=1,
 )
 pyz = PYZ(a.pure)
 
