@@ -80,7 +80,7 @@ class Ui_Form(object):
 
         self.statusLabelDisplay = QLabel(self.statusLabelWidget)
         self.statusLabelDisplay.setObjectName(u"statusLabelDisplay")
-        self.statusLabelDisplay.setText(u"OK")
+        self.statusLabelDisplay.setText(u"-")
 
         self.horizontalLayout_2.addWidget(self.statusLabelDisplay)
 
@@ -102,7 +102,7 @@ class Ui_Form(object):
 
         self.simulationSizeLabelDisplay = QLabel(self.simulationSizeLabelWidget)
         self.simulationSizeLabelDisplay.setObjectName(u"simulationSizeLabelDisplay")
-        self.simulationSizeLabelDisplay.setText(u"10kB")
+        self.simulationSizeLabelDisplay.setText(u"0 B")
 
         self.horizontalLayout_4.addWidget(self.simulationSizeLabelDisplay)
 
@@ -124,7 +124,7 @@ class Ui_Form(object):
 
         self.simulationTimeLabelDisplay = QLabel(self.simulationTimeLabelWidget)
         self.simulationTimeLabelDisplay.setObjectName(u"simulationTimeLabelDisplay")
-        self.simulationTimeLabelDisplay.setText(u"0.7 s")
+        self.simulationTimeLabelDisplay.setText(u"0.0 s")
 
         self.horizontalLayout_7.addWidget(self.simulationTimeLabelDisplay)
 
