@@ -3,7 +3,7 @@ import numpy as np
 
 from typing import TYPE_CHECKING
 
-from grafy.potencialove_funkce.potencialova_funkce import Potencialova_funkce
+from graph.potencialove_funkce.potencialova_funkce import Potencialova_funkce
 
 if TYPE_CHECKING:
     from situace import Situace

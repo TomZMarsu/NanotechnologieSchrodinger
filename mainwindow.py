@@ -13,10 +13,10 @@ import numpy as np
 # You need to run the following command to generate the ui_form.py file
 #     pyside6-uic form.ui -o ui_form.py, or
 #     pyside2-uic form.ui -o ui_form.py
-from grafy.fyzika import eV, h_bar, nm
-from grafy.potencialove_funkce.upravit_energii import Upravit_energii
-from grafy.potencialove_funkce.vytvorit_parabolickou_jamu import Vytvorit_parabolickou_jamu
-from grafy.situace import Situace
+from graph.fyzika import eV, h_bar, nm
+from graph.potencialove_funkce.upravit_energii import Upravit_energii
+from graph.potencialove_funkce.vytvorit_parabolickou_jamu import Vytvorit_parabolickou_jamu
+from graph.situace import Situace
 from ui import simulationStatus
 from ui_form import Ui_Form
 

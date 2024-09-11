@@ -4,7 +4,7 @@ from typing import Final
 from numbers import Real
 import time
 
-from grafy.potencialove_funkce.potencialova_funkce import Potencialova_funkce
+from graph.potencialove_funkce.potencialova_funkce import Potencialova_funkce
 
 class Situace():
     def __init__(self, 
