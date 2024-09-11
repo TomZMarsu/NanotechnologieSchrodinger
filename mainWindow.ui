@@ -222,7 +222,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="environmentTab">
       <attribute name="title">
@@ -230,7 +230,7 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
-        <widget class="QWidget" name="pocetPrvkuWidget" native="true">
+        <widget class="QWidget" name="elementCountWidget" native="true">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
            <horstretch>0</horstretch>
@@ -239,21 +239,21 @@
          </property>
          <layout class="QGridLayout" name="gridLayout">
           <item row="1" column="3">
-           <widget class="QLabel" name="pocetPrvkuMaximumLabel">
+           <widget class="QLabel" name="elementCountMaximumLabel">
             <property name="text">
              <string notr="true">2000</string>
             </property>
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="pocetPrvkuLabel">
+           <widget class="QLabel" name="elementCountLabel">
             <property name="text">
              <string>Počet simulačních prvků (víc prvků = vyšší přesnost, vyšší nároky na výpočet a paměť)</string>
             </property>
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="QSlider" name="pocetPrvkuSlider">
+           <widget class="QSlider" name="elementCountSlider">
             <property name="minimum">
              <number>10</number>
             </property>
@@ -272,14 +272,14 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QLabel" name="pocetPrvkuMinimumLabel">
+           <widget class="QLabel" name="elementCountMinimumLabel">
             <property name="text">
              <string notr="true">10</string>
             </property>
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="QLabel" name="pocetPrvkuCurrentLabel">
+           <widget class="QLabel" name="elementCountCurrentLabel">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -389,7 +389,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="particleWeightWidget" native="true">
+        <widget class="QWidget" name="particleMassWidget" native="true">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -398,7 +398,7 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_6">
           <item>
-           <widget class="QLabel" name="particelWeightLabel">
+           <widget class="QLabel" name="particelMassLabel">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -411,7 +411,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="particleWeightComboBox">
+           <widget class="QComboBox" name="particleMassComboBox">
             <property name="enabled">
              <bool>true</bool>
             </property>
@@ -445,7 +445,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="customParticleWeightLabel">
+           <widget class="QLabel" name="customParticleMassLabel">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -458,7 +458,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="customParticleWeightLineEdit">
+           <widget class="QLineEdit" name="customParticleMassLineEdit">
             <property name="enabled">
              <bool>false</bool>
             </property>
