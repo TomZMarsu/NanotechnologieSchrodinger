@@ -7,13 +7,13 @@ if TYPE_CHECKING:
     from graph.situation import Situation
 
 class PotencialFunction():
-    def __init__(self, situace: 'Situation') -> None:
-        self.situace = situace
+    def __init__(self, situation: 'Situation') -> None:
+        self.situation = situation
     
     def xPositionToArrayIndex(self, x: Real) -> int:
-        normalizacni_rozdil: float = -float(self.situace.xAxisStart)
-        x_normalizovano: float = float(x) + normalizacni_rozdil
-        return int(x_normalizovano/self.situace.dx)
+        normalizationDelta: float = -float(self.situation.xAxisStart)
+        xNormalized: float = float(x) + normalizationDelta
+        return int(xNormalized/self.situation.dx)
     
     def modifyPotencial(self, v0: np.ndarray) -> np.ndarray:
         return v0
