@@ -54,12 +54,12 @@ class MainWindow(QWidget):
         # ---------------------
         # MATRIX ELEMENT COUNT
         # ---
-        self.ui.pocetPrvkuSlider.valueChanged.connect(self.pocetPrvkuSliderValueChanged)
+        self.ui.elementCountSlider.valueChanged.connect(self.elementCountSliderValueChanged)
         
         # PARTICLE WEIGHT
         # ---
-        self.ui.particleWeightComboBox.currentTextChanged.connect(self.hmotnostCasticeComboBoxCurrentTextChanged)
-        self.ui.customParticleWeightLineEdit.setValidator(self.createSpatialFloatValidator())
+        self.ui.particleMassComboBox.currentTextChanged.connect(self.particleMassComboBoxCurrentTextChanged)
+        self.ui.customParticleMassLineEdit.setValidator(self.createSpatialFloatValidator())
         
         # SIMULATION WIDTH
         # ---
@@ -71,7 +71,7 @@ class MainWindow(QWidget):
         
         # Situace
         # =====================================================
-        self.situace: Situation = self.init_situation()
+        self.situation: Situation = self.init_situation()
         self.resimulate()
        
         
@@ -84,15 +84,15 @@ class MainWindow(QWidget):
         
         self.ui.englishRadioButton.click()
     
-    def getParticleWeight(self) -> float:
-        weight_str = self.ui.particleWeightComboBox.currentText()
+    def getParticleMass(self) -> float:
+        weight_str = self.ui.particleMassComboBox.currentText()
         
         if weight_str == qtc.QCoreApplication.translate("Form", "Elektron (9.109e-31)", None):
             return float(9.109e-31)
         elif weight_str == qtc.QCoreApplication.translate("Form", "Proton (1.673e-27)", None):
             return float(1.673e-27)
         else:
-            return self.getLineEditFloat(self.ui.customParticleWeightLineEdit)
+            return self.getLineEditFloat(self.ui.customParticleMassLineEdit)
         
     def getLineEditFloat(self, lineEdit) -> float:
         return lineEdit.locale().toFloat(lineEdit.text())[0]
@@ -103,25 +103,25 @@ class MainWindow(QWidget):
         
         return situation
         
-    def getEnvironmentSettings(self, situace:Situation) -> Situation:
-        situace.xAxisEnd = self.getLineEditFloat(self.ui.simulationWidthLineEdit)*nm
-        situace.elementCount = self.ui.pocetPrvkuSlider.value()
-        situace.alpha = (h_bar**2)/(2*self.getParticleWeight())
-        situace.basePotencial = self.getLineEditFloat(self.ui.basePotentialLineEdit)*eV
+    def getEnvironmentSettings(self, situation:Situation) -> Situation:
+        situation.xAxisEnd = self.getLineEditFloat(self.ui.simulationWidthLineEdit)*nm
+        situation.elementCount = self.ui.elementCountSlider.value()
+        situation.alpha = (h_bar**2)/(2*self.getParticleMass())
+        situation.basePotencial = self.getLineEditFloat(self.ui.basePotentialLineEdit)*eV
         
-        return situace
+        return situation
         
 
     @qtc.Slot()
-    def pocetPrvkuSliderValueChanged(self, x:int):
-        self.ui.pocetPrvkuCurrentLabel.setText(str(x))
+    def elementCountSliderValueChanged(self, x:int):
+        self.ui.elementCountCurrentLabel.setText(str(x))
         
     @qtc.Slot()
-    def hmotnostCasticeComboBoxCurrentTextChanged(self, str):
-        if(str=="Vlastní částice"):
-            self.ui.customParticleWeightLineEdit.setEnabled(True)
+    def particleMassComboBoxCurrentTextChanged(self, str):
+        if(str==qtc.QCoreApplication.translate("Form", "Vlastní částice", None)):
+            self.ui.customParticleMassLineEdit.setEnabled(True)
         else:
-            self.ui.customParticleWeightLineEdit.setEnabled(False)
+            self.ui.customParticleMassLineEdit.setEnabled(False)
             
     @qtc.Slot()
     def czechRadioButtonPressed(self, checked):
@@ -160,7 +160,7 @@ class MainWindow(QWidget):
         simulationStatus.translateSimulationSize(self)
         
         # Set line edit decimals
-        self.translateFloatLineEdit(self.ui.customParticleWeightLineEdit)
+        self.translateFloatLineEdit(self.ui.customParticleMassLineEdit)
         self.translateFloatLineEdit(self.ui.basePotentialLineEdit)
         self.translateFloatLineEdit(self.ui.simulationWidthLineEdit)
         
@@ -182,21 +182,21 @@ class MainWindow(QWidget):
     
     def resimulate_thread(self):
         
-        self.situace = self.getEnvironmentSettings(self.situace)
+        self.situation = self.getEnvironmentSettings(self.situation)
         self.figure.clear()
         
-        self.situace.recalculatePresolve()
-        E,psi, computation_time = self.situace.solveMatrix()
+        self.situation.recalculatePresolve()
+        E,psi, computation_time = self.situation.solveMatrix()
         
         plot_time_begin = time.time()
-        self.vykreslit_graf(self.situace)
+        self.drawSimulationGraph(self.situation)
         self.simulationCanvas.draw()
         plot_time_end = time.time()
         
         total_time: float = (plot_time_end-plot_time_begin) + computation_time
         
         simulationStatus.setSimulationTime(self, total_time)
-        simulationStatus.setSimulationSize(self, E, psi, self.situace.mainDiagonal, self.situace.offDiagonal)
+        simulationStatus.setSimulationSize(self, E, psi, self.situation.mainDiagonal, self.situation.offDiagonal)
         simulationStatus.setCurrentStatus(self, simulationStatus.SimulationStatus.OK)
         
         
@@ -205,46 +205,46 @@ class MainWindow(QWidget):
     def resimulateButtonPressed(self):
         self.resimulate()
         
-    def nastrelit_situaci(self) -> Situation:
-        situace = Situation(xAxisEnd=100,
+    def generateTestSituation(self) -> Situation:
+        situation = Situation(xAxisEnd=100,
                           isPsiOnSameLevelAsE=True,
                           isResultNormalized=True,
                           energyLevelDrawCount=30,
                           xAxisStart=-10
                           )
         
-        uprava_energie1 = ModifyEnergy(situace, 10, 40, 0)
-        uprava_energie2 = CreateParabolicWell(situace, 40, 70, situace.basePotencial)
+        modifyPotencial1 = ModifyEnergy(situation, 10, 40, 0)
+        modifyPotencial2 = CreateParabolicWell(situation, 40, 70, situation.basePotencial)
         
-        situace.functionsModifyingPotential.append(uprava_energie1)
-        situace.functionsModifyingPotential.append(uprava_energie2)
+        situation.functionsModifyingPotential.append(modifyPotencial1)
+        situation.functionsModifyingPotential.append(modifyPotencial2)
         
-        situace.recalculatePresolve()
-        situace.solveMatrix()
+        situation.recalculatePresolve()
+        situation.solveMatrix()
         
-        return situace
+        return situation
     
-    def vykreslit_graf(self, situation: Situation) -> None:
+    def drawSimulationGraph(self, situation: Situation) -> None:
         self.xAxis_nm = situation.xAxis/nm
         self.v0_ev = situation.v0/eV
         self.ax = self.figure.subplots()
         
         for i in range(0,situation.energyLevelDrawCount):
-            matice_i = situation.psi.T[i]
-            matice_i = situation.normalizePsi(matice_i)
+            matrix_i = situation.psi.T[i]
+            matrix_i = situation.normalizePsi(matrix_i)
             
             if situation.isResultNormalized:
-                matice_i = matice_i**2
+                matrix_i = matrix_i**2
             
             if situation.isPsiOnSameLavelAsE:
-                matice_i += situation.E[i]/eV
+                matrix_i += situation.E[i]/eV
 
             if situation.isLevelColorbar:
                 heatmap_body_y = np.full(situation.elementCount, situation.E[i]/eV)
-                vyska = (situation.E[i+1] - situation.E[i])*situation.colorbarHeightCoeff
-                self.ax.scatter(self.xAxis_nm,heatmap_body_y,c=matice_i, cmap="plasma", s=vyska)
+                height = (situation.E[i+1] - situation.E[i])*situation.colorbarHeightCoeff
+                self.ax.scatter(self.xAxis_nm,heatmap_body_y,c=matrix_i, cmap="plasma", s=height)
             else:
-                self.ax.plot(self.xAxis_nm,matice_i)
+                self.ax.plot(self.xAxis_nm,matrix_i)
 
         if situation.isPotentialOnSecondaryAxis:
             self.ax2 = self.ax.twinx()

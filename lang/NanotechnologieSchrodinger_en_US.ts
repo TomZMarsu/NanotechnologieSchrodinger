@@ -77,7 +77,7 @@
     <message>
         <location filename="mainWindow.ui" line="456"/>
         <source>nebo vlastní hmotnost částice (kg)</source>
-        <translation>or custom particle weight (kg)</translation>
+        <translation>or custom particle mass (kg)</translation>
     </message>
     <message>
         <location filename="mainWindow.ui" line="478"/>
