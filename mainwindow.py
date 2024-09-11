@@ -71,7 +71,7 @@ class MainWindow(QWidget):
         
         # Situace
         # =====================================================
-        self.situace: Situation = self.init_situace()
+        self.situace: Situation = self.init_situation()
         self.resimulate()
        
         
@@ -97,17 +97,17 @@ class MainWindow(QWidget):
     def getLineEditFloat(self, lineEdit) -> float:
         return lineEdit.locale().toFloat(lineEdit.text())[0]
         
-    def init_situace(self) -> Situation:
-        situace = Situation()
-        situace = self.getEnvironmentSettings(situace)
+    def init_situation(self) -> Situation:
+        situation = Situation()
+        situation = self.getEnvironmentSettings(situation)
         
-        return situace
+        return situation
         
-    def getEnvironmentSettings(self, situace) -> Situation:
-        situace.konec_osy = self.getLineEditFloat(self.ui.simulationWidthLineEdit)*nm
-        situace.pocet_prvku = self.ui.pocetPrvkuSlider.value()
-        situace.alfa = (h_bar**2)/(2*self.getParticleWeight())
-        situace.energie = self.getLineEditFloat(self.ui.basePotentialLineEdit)*eV
+    def getEnvironmentSettings(self, situace:Situation) -> Situation:
+        situace.xAxisEnd = self.getLineEditFloat(self.ui.simulationWidthLineEdit)*nm
+        situace.elementCount = self.ui.pocetPrvkuSlider.value()
+        situace.alpha = (h_bar**2)/(2*self.getParticleWeight())
+        situace.basePotencial = self.getLineEditFloat(self.ui.basePotentialLineEdit)*eV
         
         return situace
         
@@ -257,7 +257,7 @@ class MainWindow(QWidget):
             self.ax.set_ylabel(qtc.QCoreApplication.translate("Form", "$Ψ^2$ [-]", None))
         else:
             self.ax.plot(self.xAxis_nm, self.v0_ev, color="black")
-            self.ax.set_ylabel(f"{qtc.QCoreApplication.translate("Form", "$Ψ^2$ [-]", None)} / {qtc.QCoreApplication.translate("Form", "Potencial [eV]}", None)}")
+            self.ax.set_ylabel(f"{qtc.QCoreApplication.translate("Form", "$Ψ^2$ [-]", None)} / {qtc.QCoreApplication.translate("Form", "Potencial [eV]", None)}")
 
         self.ax.set_xlabel(qtc.QCoreApplication.translate("Form", "x [nm]", None))
 
