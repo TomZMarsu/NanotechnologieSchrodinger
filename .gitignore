@@ -4,3 +4,4 @@ __pycache__
 /dist/
 upx.exe
 requirements.txt
+mainWindow.ui.autosave
