@@ -1043,55 +1043,23 @@ class Ui_Form(object):
         self.verticalLayout_16 = QVBoxLayout(self.energyLevelsTableTab)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.tableWidget = QTableWidget(self.energyLevelsTableTab)
-        if (self.tableWidget.columnCount() < 4):
-            self.tableWidget.setColumnCount(4)
+        if (self.tableWidget.columnCount() < 3):
+            self.tableWidget.setColumnCount(3)
         __qtablewidgetitem = QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
-        __qtablewidgetitem3 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        if (self.tableWidget.rowCount() < 3):
-            self.tableWidget.setRowCount(3)
-        __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setText(u"3");
-        self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
-        __qtablewidgetitem5 = QTableWidgetItem()
-        __qtablewidgetitem5.setText(u"1");
-        self.tableWidget.setItem(0, 0, __qtablewidgetitem5)
-        __qtablewidgetitem6 = QTableWidgetItem()
-        __qtablewidgetitem6.setText(u"1");
-        self.tableWidget.setItem(0, 1, __qtablewidgetitem6)
-        __qtablewidgetitem7 = QTableWidgetItem()
-        __qtablewidgetitem7.setText(u"18e3");
-        self.tableWidget.setItem(0, 2, __qtablewidgetitem7)
-        __qtablewidgetitem8 = QTableWidgetItem()
-        self.tableWidget.setItem(0, 3, __qtablewidgetitem8)
-        __qtablewidgetitem9 = QTableWidgetItem()
-        __qtablewidgetitem9.setText(u"2");
-        self.tableWidget.setItem(1, 0, __qtablewidgetitem9)
-        __qtablewidgetitem10 = QTableWidgetItem()
-        __qtablewidgetitem10.setText(u"4");
-        self.tableWidget.setItem(1, 1, __qtablewidgetitem10)
-        __qtablewidgetitem11 = QTableWidgetItem()
-        __qtablewidgetitem11.setText(u"18e3");
-        self.tableWidget.setItem(1, 2, __qtablewidgetitem11)
-        __qtablewidgetitem12 = QTableWidgetItem()
-        self.tableWidget.setItem(1, 3, __qtablewidgetitem12)
-        __qtablewidgetitem13 = QTableWidgetItem()
-        __qtablewidgetitem13.setText(u"3");
-        self.tableWidget.setItem(2, 0, __qtablewidgetitem13)
-        __qtablewidgetitem14 = QTableWidgetItem()
-        __qtablewidgetitem14.setText(u"9");
-        self.tableWidget.setItem(2, 1, __qtablewidgetitem14)
-        __qtablewidgetitem15 = QTableWidgetItem()
-        __qtablewidgetitem15.setText(u"18e3");
-        self.tableWidget.setItem(2, 2, __qtablewidgetitem15)
-        __qtablewidgetitem16 = QTableWidgetItem()
-        self.tableWidget.setItem(2, 3, __qtablewidgetitem16)
+        if (self.tableWidget.rowCount() < 500):
+            self.tableWidget.setRowCount(500)
         self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.tableWidget.setSortingEnabled(True)
+        self.tableWidget.setRowCount(500)
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(200)
+        self.tableWidget.horizontalHeader().setProperty("showSortIndicator", True)
+        self.tableWidget.horizontalHeader().setStretchLastSection(False)
         self.tableWidget.verticalHeader().setVisible(False)
 
         self.verticalLayout_16.addWidget(self.tableWidget)
@@ -1154,7 +1122,7 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(Form)
@@ -1251,14 +1219,9 @@ class Ui_Form(object):
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Form", u"n", None));
         ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("Form", u"En [eV]", None));
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("Form", u"\u03a8max [-]", None));
         ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("Form", u"\u03a8max [-]", None));
-
-        __sortingEnabled2 = self.tableWidget.isSortingEnabled()
-        self.tableWidget.setSortingEnabled(False)
-        self.tableWidget.setSortingEnabled(__sortingEnabled2)
-
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("Form", u"En [eV]", None));
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.energyLevelsTableTab), QCoreApplication.translate("Form", u"Tabulka energetick\u00fdch hladin", None))
         self.creditsLabel.setText(QCoreApplication.translate("Form", u"Vytvo\u0159il Tom\u00e1\u0161 Svoboda (256695@vutbr.cz)", None))
         self.githubLabel.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><a href=\"https://github.com/TomZMarsu/NanotechnologieSchrodinger\"><span style=\" text-decoration: underline; color:#007af4;\">Zdrojov\u00fd k\u00f3d (GitHub)</span></a></p></body></html>", None))
