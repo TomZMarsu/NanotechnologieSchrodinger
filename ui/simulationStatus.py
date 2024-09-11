@@ -1,9 +1,40 @@
+from enum import Enum
 import sys
 import numpy as np
+from PySide6 import QtCore as qtc
 
 from PySide6.QtWidgets import QLabel
 from mainwindow import MainWindow
 
+class SimulationStatus(Enum):
+    OK = 1
+    IN_PROGRESS = 2
+    SETTINGS_ERROR = 3
+
+_currentStatus = SimulationStatus.OK
+
+def currentStatus():
+    return _currentStatus
+
+def setCurrentStatus(mw: MainWindow, status: SimulationStatus):
+    displayString: str = qtc.QCoreApplication.translate("Form", "OK", None)
+    
+    match status:
+        case SimulationStatus.OK:
+            displayString = qtc.QCoreApplication.translate("Form", "OK", None)
+            mw.ui.resimulateButton.setEnabled(True)
+            
+        case SimulationStatus.IN_PROGRESS:
+            displayString = qtc.QCoreApplication.translate("Form", "In progress", None)
+            mw.ui.resimulateButton.setEnabled(False)
+            
+        case SimulationStatus.SETTINGS_ERROR:
+            displayString = qtc.QCoreApplication.translate("Form", "Settings error", None)
+            mw.ui.resimulateButton.setEnabled(True)
+        
+    _currentStatus = status   
+    mw.ui.statusLabelDisplay.setText(displayString)
+        
 
 def setSimulationTime(mw: MainWindow, time: float):
         timeLabel = mw.ui.simulationTimeLabelDisplay

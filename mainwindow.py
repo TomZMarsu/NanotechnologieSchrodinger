@@ -1,5 +1,6 @@
 # This Python file uses the following encoding: utf-8
 import sys
+import threading
 import time
 from PySide6.QtWidgets import QApplication, QWidget, QLineEdit
 from PySide6 import QtCore as qtc
@@ -176,6 +177,12 @@ class MainWindow(QWidget):
         return validator
     
     def resimulate(self):
+        simulationStatus.setCurrentStatus(self, simulationStatus.SimulationStatus.IN_PROGRESS)
+        thread = threading.Thread(target=self.resimulate_thread)
+        thread.start()
+    
+    def resimulate_thread(self):
+        
         self.situace = self.getEnvironmentSettings(self.situace)
         self.ax.clear()
         
@@ -194,6 +201,7 @@ class MainWindow(QWidget):
         
         simulationStatus.setSimulationTime(self, total_time)
         simulationStatus.setSimulationSize(self, E, psi, self.situace.hlavni_diagonala, self.situace.vedlejsi_diagonala)
+        simulationStatus.setCurrentStatus(self, simulationStatus.SimulationStatus.OK)
         
         
     
