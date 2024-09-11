@@ -18,6 +18,7 @@ from graph.potencialFunction.modifyPotential import ModifyEnergy
 from graph.potencialFunction.createParabolicWell import CreateParabolicWell
 from graph.situation import Situation
 from ui import simulationStatus
+from ui.energyLevelsTable import setSimulationResultToTable
 from ui_form import Ui_Form
 
 class MainWindow(QWidget):
@@ -198,6 +199,7 @@ class MainWindow(QWidget):
         simulationStatus.setSimulationTime(self, total_time)
         simulationStatus.setSimulationSize(self, E, psi, self.situation.mainDiagonal, self.situation.offDiagonal)
         simulationStatus.setCurrentStatus(self, simulationStatus.SimulationStatus.OK)
+        setSimulationResultToTable(self, E, psi)
         
         
     
