@@ -10,24 +10,24 @@ if TYPE_CHECKING:
     from graph.situation import Situation
 
 class CreateParabolicWell(PotencialFunction):
-    def __init__(self, situace: 'Situation', pocatek: Real, konec: Real, energie_na_hrane: Real) -> None:
-        super().__init__(situace)
+    def __init__(self, situation: 'Situation', start: Real, end: Real, potencialOnEdge: Real) -> None:
+        super().__init__(situation)
         
-        self.pocatek = pocatek
-        self.konec = konec
-        self.energie_na_hrane = energie_na_hrane
+        self.start = start
+        self.end = end
+        self.potencialOnEdge = potencialOnEdge
     
     def modifyPotencial(self, v0: np.ndarray) -> np.ndarray:
-        v0_pole = v0
+        v0_array = v0
         
-        stred = self.pocatek+(self.konec-self.pocatek)/2
-        x_stred = self.x_pozice_v_poli(stred)
-        x_pocatek = self.x_pozice_v_poli(self.pocatek)
-        x_konec = self.x_pozice_v_poli(self.konec)
-        strmost = self.energie_na_hrane/((x_pocatek-x_stred)**2)
+        center = self.start+(self.end-self.start)/2
+        xCenter = self.x_pozice_v_poli(center)
+        xStart = self.x_pozice_v_poli(self.start)
+        xEnd = self.x_pozice_v_poli(self.end)
+        steepness = self.potencialOnEdge/((xStart-xCenter)**2)
 
-        for x in range(x_pocatek,x_konec):
-            v0_pole[x] = strmost*(x-x_stred)**2
+        for x in range(xStart,xEnd):
+            v0_array[x] = steepness*(x-xCenter)**2
         
-        return v0_pole
+        return v0_array
     
