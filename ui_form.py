@@ -15,13 +15,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCheckBox, QComboBox,
-    QDoubleSpinBox, QFrame, QGridLayout, QGroupBox,
-    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
-    QListWidget, QListWidgetItem, QPushButton, QRadioButton,
-    QScrollArea, QSizePolicy, QSlider, QSpacerItem,
-    QSpinBox, QTabWidget, QTableWidget, QTableWidgetItem,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QButtonGroup, QCheckBox,
+    QComboBox, QDoubleSpinBox, QFrame, QGridLayout,
+    QGroupBox, QHBoxLayout, QHeaderView, QLabel,
+    QLineEdit, QListWidget, QListWidgetItem, QPushButton,
+    QRadioButton, QScrollArea, QSizePolicy, QSlider,
+    QSpacerItem, QSpinBox, QTabWidget, QTableWidget,
+    QTableWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -552,7 +552,7 @@ class Ui_Form(object):
         self.tunnelingScrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -240, 380, 686))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 380, 686))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.scrollAreaWidget = QWidget(self.scrollAreaWidgetContents)
@@ -841,6 +841,9 @@ class Ui_Form(object):
         self.horizontalLayout_14 = QHBoxLayout(self.levelsSpecificRangeWidget)
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
         self.levelsSpecificRangeRadioButton = QRadioButton(self.levelsSpecificRangeWidget)
+        self.resultLevelsRadioButtonGroup = QButtonGroup(Form)
+        self.resultLevelsRadioButtonGroup.setObjectName(u"resultLevelsRadioButtonGroup")
+        self.resultLevelsRadioButtonGroup.addButton(self.levelsSpecificRangeRadioButton)
         self.levelsSpecificRangeRadioButton.setObjectName(u"levelsSpecificRangeRadioButton")
 
         self.horizontalLayout_14.addWidget(self.levelsSpecificRangeRadioButton)
@@ -887,6 +890,7 @@ class Ui_Form(object):
         self.horizontalLayout_15 = QHBoxLayout(self.levelsHighestPotentialWidget)
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
         self.levelsHighestPotentialRadioButton = QRadioButton(self.levelsHighestPotentialWidget)
+        self.resultLevelsRadioButtonGroup.addButton(self.levelsHighestPotentialRadioButton)
         self.levelsHighestPotentialRadioButton.setObjectName(u"levelsHighestPotentialRadioButton")
 
         self.horizontalLayout_15.addWidget(self.levelsHighestPotentialRadioButton)
@@ -911,6 +915,7 @@ class Ui_Form(object):
         self.horizontalLayout_16 = QHBoxLayout(self.levelsRangePotentialWidget)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
         self.levelsRangePotentialRadioButton = QRadioButton(self.levelsRangePotentialWidget)
+        self.resultLevelsRadioButtonGroup.addButton(self.levelsRangePotentialRadioButton)
         self.levelsRangePotentialRadioButton.setObjectName(u"levelsRangePotentialRadioButton")
 
         self.horizontalLayout_16.addWidget(self.levelsRangePotentialRadioButton)
@@ -1149,7 +1154,7 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(Form)
