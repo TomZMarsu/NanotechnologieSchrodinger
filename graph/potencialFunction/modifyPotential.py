@@ -9,20 +9,20 @@ if TYPE_CHECKING:
     from graph.situation import Situation
 
 class ModifyEnergy(PotencialFunction):
-    def __init__(self, situace: 'Situation', pocatek: Real, konec: Real, energie: Real) -> None:
-        super().__init__(situace)
+    def __init__(self, situation: 'Situation', start: Real, end: Real, potencial: Real) -> None:
+        super().__init__(situation)
     
-        self.pocatek = pocatek
-        self.konec = konec
-        self.energie = energie
+        self.start = start
+        self.end = end
+        self.potencial = potencial
     
     def modifyPotencial(self, v0: np.ndarray) -> np.ndarray:
-        v0_pole = v0
+        v0_array = v0
         
-        x_pocatek = self.x_pozice_v_poli(self.pocatek)
-        x_konec = self.x_pozice_v_poli(self.konec)
+        xStart = self.xPositionToArrayIndex(self.start)
+        xEnd = self.xPositionToArrayIndex(self.end)
 
-        v0_pole[x_pocatek:x_konec] = self.energie
+        v0_array[xStart:xEnd] = self.potencial
         
-        return v0_pole
+        return v0_array
         

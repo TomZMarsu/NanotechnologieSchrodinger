@@ -21,9 +21,9 @@ class CreateParabolicWell(PotencialFunction):
         v0_array = v0
         
         center = self.start+(self.end-self.start)/2
-        xCenter = self.x_pozice_v_poli(center)
-        xStart = self.x_pozice_v_poli(self.start)
-        xEnd = self.x_pozice_v_poli(self.end)
+        xCenter = self.xPositionToArrayIndex(center)
+        xStart = self.xPositionToArrayIndex(self.start)
+        xEnd = self.xPositionToArrayIndex(self.end)
         steepness = self.potencialOnEdge/((xStart-xCenter)**2)
 
         for x in range(xStart,xEnd):

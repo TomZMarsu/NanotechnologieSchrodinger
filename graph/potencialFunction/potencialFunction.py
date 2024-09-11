@@ -10,7 +10,7 @@ class PotencialFunction():
     def __init__(self, situace: 'Situation') -> None:
         self.situace = situace
     
-    def x_pozice_v_poli(self, x: Real) -> int:
+    def xPositionToArrayIndex(self, x: Real) -> int:
         normalizacni_rozdil: float = -float(self.situace.xAxisStart)
         x_normalizovano: float = float(x) + normalizacni_rozdil
         return int(x_normalizovano/self.situace.dx)
