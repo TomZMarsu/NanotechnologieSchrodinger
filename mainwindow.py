@@ -183,10 +183,7 @@ class MainWindow(QWidget):
     def resimulate_thread(self):
         
         self.situace = self.getEnvironmentSettings(self.situace)
-        self.ax.clear()
-        
-        if self.ax2:
-            self.ax2.clear()
+        self.figure.clear()
         
         self.situace.recalculatePresolve()
         E,psi, computation_time = self.situace.solveMatrix()
@@ -230,6 +227,7 @@ class MainWindow(QWidget):
     def vykreslit_graf(self, situation: Situation) -> None:
         self.xAxis_nm = situation.xAxis/nm
         self.v0_ev = situation.v0/eV
+        self.ax = self.figure.subplots()
         
         for i in range(0,situation.energyLevelDrawCount):
             matice_i = situation.psi.T[i]
@@ -249,10 +247,9 @@ class MainWindow(QWidget):
                 self.ax.plot(self.xAxis_nm,matice_i)
 
         if situation.isPotentialOnSecondaryAxis:
-            if self.ax2 is None:
-                self.ax2 = self.ax.twinx()
-                
+            self.ax2 = self.ax.twinx()
             self.ax2.plot(self.xAxis_nm, self.v0_ev, color="black")
+            
             self.ax2.set_ylabel(qtc.QCoreApplication.translate("Form", "Potencial [eV]", None))
             self.ax.set_ylabel(qtc.QCoreApplication.translate("Form", "$Ψ^2$ [-]", None))
         else:
